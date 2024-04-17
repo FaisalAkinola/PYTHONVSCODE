@@ -3,6 +3,7 @@ import pandas as pd
 datafile=pd.read_csv('employee.csv')
 st.set_page_config(layout='wide')
 menu=st.sidebar.selectbox('Select Menu',['Register Staff','Staff Database','Staff Search'])
+st.sidebar.write("**App Made By Faisal**")
 user_id='USER_'+str(len(datafile)+1)
 
 if menu=='Register Staff':
