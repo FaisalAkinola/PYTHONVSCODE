@@ -45,7 +45,9 @@ if menu =='Staff Search':
     if find:
         if search:
             try:
-                search_result=datafile[datafile['User ID']==search]
+                search_result=datafile[datafile['User ID'].str.lower()==search.lower()]
+                
+               
                 newID = search_result['User ID'].iloc[0]
                 newFN = search_result['First Name'].iloc[0]
                 newLN = search_result['Last Name'].iloc[0]
