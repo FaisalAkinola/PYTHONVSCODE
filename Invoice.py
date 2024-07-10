@@ -180,15 +180,21 @@ pdf_func = generate_pdf()
 with open(pdf_func, 'rb') as binary:
      pdf_data = binary.read()
 
-
-if st.button(":blue[View Invoice]"):
-     #Write the PDF using base64
-     pdf_base64 = base64.b64encode(pdf_data).decode('utf-8')
-
-
-     #Generate the HTML to embed the PDF
-     pdf_embed = f'<embed src="data:application/pdf;base64,{pdf_base64}" type="application/pdf" width="100%" height="600px" />'
+but1,but2=st.columns(2)
+with but1:
+    # if st.button(":blue[View Invoice]"):
+        #Write the PDF using base64
+        #  pdf_base64 = base64.b64encode(pdf_data).decode('utf-8')
 
 
-     #Display the embedded pdf (Markdown helps us use HTML in streamlit)
-     st.markdown(pdf_embed,unsafe_allow_html=True)
+        #  #Generate the HTML to embed the PDF
+        #  pdf_embed = f'<embed src="data:application/pdf;base64,{pdf_base64}" type="application/pdf" width="100%" height="600px" />'
+
+
+        #  #Display the embedded pdf (Markdown helps us use HTML in streamlit)
+        #  st.markdown(pdf_embed,unsafe_allow_html=True)
+    with but2:
+         if customer and adress and Invoicenum and description and quantity and price and Date and due:
+              st.download_button(label=':blue[**Download PDF**]',data=pdf_data, file_name='GeneratedInvoice.pdf',mime='application/pdf')
+         else:
+            st.error("Kindly Fill All Boxes")
