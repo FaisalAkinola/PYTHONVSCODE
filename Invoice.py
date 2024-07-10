@@ -34,7 +34,20 @@ with colb2:
 with colb3:
         Invoicenum = st.text_input('w',placeholder='Invoice Number',label_visibility= 'collapsed')
         Date=st.date_input("Enter Invoice Date",label_visibility='collapsed')
+        day=Date.day
+        month=Date.strftime('%B')
+        year=Date.year
+        Date=f'{day} {month} {year}'
+
+
         due=st.date_input("Enter Due Date",label_visibility='collapsed')
+        day=due.day
+        month=due.strftime('%B')
+        year=due.year
+        due=f'{day} {month} {year}'
+
+
+
 st.write("")
 st.write("")
 
