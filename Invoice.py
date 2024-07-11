@@ -90,7 +90,7 @@ def generate_pdf():
     colh=10
     pdf.set_font("Times", size=25,style='B')
     pdf.image("Logo.png",x=colx1,y=coly1,w=25)
-    pdf.set_xy(colx1+130,coly1)
+    pdf.set_xy(colx1+100,coly1)
     pdf.cell(colw,colh, txt='INVOICE',ln=True,align='L')
 
     pdf.set_font("Times", size=12)
