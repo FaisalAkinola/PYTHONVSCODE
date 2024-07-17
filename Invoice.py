@@ -91,7 +91,7 @@ if menu=='Invoice Creator':
         st.write(":blue[**Discount(%)**]")   
         disamount=total*(discount/100)
         st.write(f':blue[{disamount}]')
-        realtotal=total+taxamount-disamount
+        realtotal=total-taxamount+disamount
 
     st.divider()
     cold1,cold2=st.columns(2)
