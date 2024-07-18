@@ -180,6 +180,15 @@ if menu=='Invoice Creator':
         pdf.set_line_width(0.5)
         pdf.line(colx1,coly1+142,colx1+170,coly1+142)
 
+        pdf.set_xy(colx1+115,coly1+142)
+        pdf.cell(colw,colh,txt='Tax:',ln=True,align='L')
+
+        pdf.set_xy(colx1+118,coly1+142)
+        pdf.cell(colw,colh,txt=f'{taxamount}',ln=True,align='L')
+
+
+
+
         
 
 
