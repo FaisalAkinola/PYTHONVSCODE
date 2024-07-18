@@ -103,7 +103,6 @@ if menu=='Invoice Creator':
     with cold2:
         st.write(":blue[**Payment Due:**]")
         st.header(f":violet[**${realtotal:,}**]")
-    st.button(":blue[Save Info]")
 
     def generate_pdf():
         pdf=FPDF()
