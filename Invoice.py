@@ -169,10 +169,10 @@ if menu=='Invoice Creator':
         pdf.cell(colw,colh,txt=f'{description}',ln=True,align='L')
 
         pdf.set_xy(colx1+70,coly1+132)
-        pdf.cell(colw,colh,txt=f'{quantity}',ln=True,align='L')
+        pdf.cell(colw,colh,txt=f'{quantity:,}',ln=True,align='L')
 
         pdf.set_xy(colx1+115,coly1+132)
-        pdf.cell(colw,colh,txt=f'{price}',ln=True,align='L')
+        pdf.cell(colw,colh,txt=f'{price:,}',ln=True,align='L')
 
         pdf.set_xy(colx1+150,coly1+132)
         pdf.cell(colw,colh,txt=f'${total:,}',ln=True,align='L')
@@ -180,11 +180,17 @@ if menu=='Invoice Creator':
         pdf.set_line_width(0.5)
         pdf.line(colx1,coly1+142,colx1+170,coly1+142)
 
-        pdf.set_xy(colx1+115,coly1+142)
+        pdf.set_xy(colx1+115,coly1+140)
         pdf.cell(colw,colh,txt='Tax:',ln=True,align='L')
 
-        pdf.set_xy(colx1+140,coly1+142)
-        pdf.cell(colw,colh,txt=f'{taxamount}',ln=True,align='L')
+        pdf.set_xy(colx1+140,coly1+140)
+        pdf.cell(colw,colh,txt=f'{taxamount:,}',ln=True,align='L')
+
+        pdf.set_xy(colx1+115,coly1+147)
+        pdf.cell(colw,colh,txt='Discount:',ln=True,align='L')
+
+        pdf.set_xy(colx1+140,coly1+147)
+        pdf.cell(colw,colh,txt=f'{disamount:,}',ln=True,align='L')
 
 
 
@@ -224,7 +230,7 @@ if menu=='Invoice Creator':
 
         pdf.set_font("Times", size=18,style='B')    
         pdf.set_xy(colx1+125,coly1+182)
-        pdf.cell(colw,colh,txt=f'${total:,}',ln=True,align='L')
+        pdf.cell(colw,colh,txt=f'${realtotal:,}',ln=True,align='L')
 
 
 
@@ -244,17 +250,18 @@ if menu=='Invoice Creator':
 
     but1,but2=st.columns(2)
     with but2:
-        if st.button(":blue[View Invoice]"):
+        if customer and adress and Invoicenum and description and quantity and price and Date and due:
+            if st.button(":blue[View Invoice]"):
             #Write the PDF using base64
-             pdf_base64 = base64.b64encode(pdf_data).decode('utf-8')
+                 pdf_base64 = base64.b64encode(pdf_data).decode('utf-8')
 
 
              #Generate the HTML to embed the PDF
-             pdf_embed = f'<embed src="data:application/pdf;base64,{pdf_base64}" type="application/pdf" width="100%" height="600px" />'
+                 pdf_embed = f'<embed src="data:application/pdf;base64,{pdf_base64}" type="application/pdf" width="100%" height="600px" />'
 
 
              #Display the embedded pdf (Markdown helps us use HTML in streamlit)
-             st.markdown(pdf_embed,unsafe_allow_html=True)
+                 st.markdown(pdf_embed,unsafe_allow_html=True)
     with but1:
             if customer and adress and Invoicenum and description and quantity and price and Date and due:
                 st.download_button(label=':blue[**Download PDF**]',data=pdf_data, file_name='GeneratedInvoice.pdf',mime='application/pdf')
