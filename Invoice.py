@@ -243,18 +243,18 @@ if menu=='Invoice Creator':
         pdf_data = binary.read()
 
     but1,but2=st.columns(2)
-    # with but2:
-        # if st.button(":blue[View Invoice]"):
+    with but2:
+        if st.button(":blue[View Invoice]"):
             #Write the PDF using base64
-            #  pdf_base64 = base64.b64encode(pdf_data).decode('utf-8')
+             pdf_base64 = base64.b64encode(pdf_data).decode('utf-8')
 
 
-            #  #Generate the HTML to embed the PDF
-            #  pdf_embed = f'<embed src="data:application/pdf;base64,{pdf_base64}" type="application/pdf" width="100%" height="600px" />'
+             #Generate the HTML to embed the PDF
+             pdf_embed = f'<embed src="data:application/pdf;base64,{pdf_base64}" type="application/pdf" width="100%" height="600px" />'
 
 
-            #  #Display the embedded pdf (Markdown helps us use HTML in streamlit)
-            #  st.markdown(pdf_embed,unsafe_allow_html=True)
+             #Display the embedded pdf (Markdown helps us use HTML in streamlit)
+             st.markdown(pdf_embed,unsafe_allow_html=True)
     with but1:
             if customer and adress and Invoicenum and description and quantity and price and Date and due:
                 st.download_button(label=':blue[**Download PDF**]',data=pdf_data, file_name='GeneratedInvoice.pdf',mime='application/pdf')
