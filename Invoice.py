@@ -1,15 +1,44 @@
 import streamlit as st
+import pandas as pd
 from fpdf import FPDF
 import base64
+csvfile=pd.read_csv('invoice.csv')
+
+st.set_page_config(page_title="Invoice Generator",page_icon=":cyclone",layout="centered",initial_sidebar_state='expanded')
+
+
+
 
 menu=st.sidebar.selectbox('Menu',['Invoice Creator','Change Details'])
 if menu=='Change Details':
-     pass
-
-
+    
+    #logo,name,addr,country,acc name,number,bank name
+    
+    logo=st.file_uploader("Change Your Logo Here",type=['jpg','png','jpeg'])
+    left,right=st.columns(2)
+    with left:
+        name=st.text_input("Change Company Name Here")
+        country=st.text_input("Change Company Country Here")
+        accname=st.text_input("Change Account Name Here")
+    with right:
+        address=st.text_input("Change Company Address Here")
+        bank=st.text_input("Change Bank Name Here")
+        accnumber=st.text_input("Change Account Number Here")
+    if st.button("Save Changes"):
+        changes={'Company Name':[name],'Company Country':[country],'Account Name':[accname],'Company Adress':[address],'Bank Name':[bank],'Account Number':[accnumber]}
+        changesDF=pd.DataFrame(changes)
+        changesDF.to_csv('invoice.csv',index=False)
 
 
 if menu=='Invoice Creator':
+    name2 = csvfile['Company Name'].iloc[0]
+    country2 = csvfile['Company Country'].iloc[0]
+    accname2 = csvfile['Account Name'].iloc[0]
+    address2 = csvfile['Company Adress'].iloc[0]
+    bank2 = csvfile['Bank Name'].iloc[0]
+    accnumber2 = csvfile['Account Number'].iloc[0]
+
+
     st.sidebar.write("**OPTIONAL**")
     tax=st.sidebar.number_input("Enter Tax %",0,100)
     discount=st.sidebar.number_input("Enter Discount %",0,100)
@@ -21,9 +50,9 @@ if menu=='Invoice Creator':
     with Image3:
         st.title(":blue[Invoice]")
     with col1:
-        st.write(':blue[Faisaltech]')
-        st.write(":blue[471, Camelia 7, Arabian Ranches 8]")
-        st.write(':blue[Dubai, UAE]')
+        st.write(f':blue[{name2}]')
+        st.write(f":blue[{address2}]")
+        st.write(f':blue[{country2}]')
         st.write(" ")
         st.write(":blue[**Bill To:**]")
 
@@ -97,9 +126,9 @@ if menu=='Invoice Creator':
     cold1,cold2=st.columns(2)
     with cold1:
         st.write(":blue[**Payment Info**]")
-        st.write(":blue[Acc Name: Faisaltech]")
-        st.write(":blue[Acc Number: 509 173 1594]")
-        st.write(":blue[Bank Name: UAE Bank]")
+        st.write(f":blue[Acc Name: {accname2}]")
+        st.write(f":blue[Acc Number: {accnumber2}]")
+        st.write(f":blue[Bank Name: {bank2}]")
     with cold2:
         st.write(":blue[**Payment Due:**]")
         st.header(f":violet[**${realtotal:,}**]")
@@ -112,7 +141,7 @@ if menu=='Invoice Creator':
         pdf.set_font("Times", size=12)
         colx1=10
         coly1=25
-        
+
         colw=90
         colh=10
         pdf.set_font("Times", size=25,style='B')
@@ -122,13 +151,13 @@ if menu=='Invoice Creator':
 
         pdf.set_font("Times", size=12)
         pdf.set_xy(colx1,coly1+20)
-        pdf.cell(colw,colh,txt='Faisaltech',ln=True,align='L')
+        pdf.cell(colw,colh,txt=f'{name2}',ln=True,align='L')
 
         pdf.set_xy(colx1,coly1+30)
-        pdf.cell(colw,colh,txt='471, Camelia 7, Arabian Ranches 8',ln=True,align='L')
+        pdf.cell(colw,colh,txt=f'{address2}',ln=True,align='L')
 
         pdf.set_xy(colx1,coly1+40)
-        pdf.cell(colw,colh,txt='Dubai, UAE',ln=True,align='L')
+        pdf.cell(colw,colh,txt=f'{country2}',ln=True,align='L')
 
         pdf.set_font("Times", size=12,style='B')
         pdf.set_xy(colx1,coly1+70)
@@ -208,15 +237,15 @@ if menu=='Invoice Creator':
 
         pdf.set_font("Times", size=12)
         pdf.set_xy(colx1,coly1+180)
-        pdf.cell(colw,colh,txt=f'Acc Name: Faisaltech',ln=True,align='L')
+        pdf.cell(colw,colh,txt=f'Acc Name: {accname2}',ln=True,align='L')
 
         pdf.set_font("Times", size=12)
         pdf.set_xy(colx1,coly1+185)
-        pdf.cell(colw,colh,txt=f'Acc Number: 509 173 1594',ln=True,align='L')
+        pdf.cell(colw,colh,txt=f'Acc Number: {accnumber2}',ln=True,align='L')
 
         pdf.set_font("Times", size=12)
         pdf.set_xy(colx1,coly1+190)
-        pdf.cell(colw,colh,txt=f'Bank Name: UAE Bank',ln=True,align='L')
+        pdf.cell(colw,colh,txt=f'Bank Name: {bank2}',ln=True,align='L')
 
         pdf.set_font("Times", size=12)
         pdf.set_xy(colx1,coly1+195)
