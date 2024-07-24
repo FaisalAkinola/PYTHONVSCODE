@@ -16,10 +16,11 @@ if menu=='Event Inputs':
         distance=st.selectbox('Select The Event Distance',['800M','1500M'])
     if category=='Long Run':
         distance=st.selectbox('Select The Event Distance',['3000M','5000M','10000M'])
-    racedict={'Runner Name':[name],'Race Time':[time],'Race Category':[category],'Race Distance':[distance]}
-    raceDF=pd.DataFrame(racedict)
-    combinedata=pd.concat([csvfile,raceDF],ignore_index=True)
-    combinedata.to_csv('employee.csv',index=False)
-    
-    if menu=='Event Database':
-        st.table(csvfile)
+    if st.button("Save Info"):
+        racedict={'Runner Name':[name],'Race Time':[time],'Race Category':[category],'Race Distance':[distance]}
+        raceDF=pd.DataFrame(racedict)
+        combinedata=pd.concat([csvfile,raceDF],ignore_index=True)
+        combinedata.to_csv('racetimes.csv',index=False)
+        
+if menu=='Event Database':
+    st.table(csvfile)
