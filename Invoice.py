@@ -13,30 +13,63 @@ menu=st.sidebar.selectbox('Menu',['Invoice Creator','Change Details'])
 if menu=='Change Details':
     
     #logo,name,addr,country,acc name,number,bank name
-    
-    logo=st.file_uploader("Change Your Logo Here",type=['jpg','png','jpeg'])
-    left,right=st.columns(2)
-    with left:
-        name=st.text_input("Change Company Name Here")
-        country=st.text_input("Change Company Country Here")
-        accname=st.text_input("Change Account Name Here")
-    with right:
-        address=st.text_input("Change Company Address Here")
-        bank=st.text_input("Change Bank Name Here")
-        accnumber=st.text_input("Change Account Number Here")
-    if st.button("Save Changes"):
-        changes={'Company Name':[name],'Company Country':[country],'Account Name':[accname],'Company Adress':[address],'Bank Name':[bank],'Account Number':[accnumber]}
-        changesDF=pd.DataFrame(changes)
-        changesDF.to_csv('invoice.csv',index=False)
+    adminpass=st.sidebar.text_input("Enter Admin Password",type='password')
+    if adminpass=='12345':
+        logo=st.file_uploader("Change Your Logo Here",type=['jpg','png','jpeg'])
+        left,right=st.columns(2)
+        with left:
+            name=st.text_input("Change Company Name Here")
+            country=st.text_input("Change Company Country Here")
+            accname=st.text_input("Change Account Name Here")
+        with right:
+            address=st.text_input("Change Company Address Here")
+            bank=st.text_input("Change Bank Name Here")
+            accnumber=st.text_input("Change Account Number Here")
+        if st.button("Save Changes"):
+            #changes={'Company Name':[name],'Company Country':[country],'Account Name':[accname],'Company Adress':[address],'Bank Name':[bank],'Account Number':[accnumber]}
+            changes={}
+            if name:
+                changes['name']=[name]
+            else:
+                changes['name']=csvfile['name'].iloc   [0]
+            if country:
+                changes['country']=[country]
+            else:
+                changes['country']=csvfile['country'].iloc[0]
+            if accname:
+                changes['accname']=[accname]
+            else:
+                changes['accname']=csvfile['accname'].iloc[0]
+            if address:
+                changes['address']=[address]
+            else:
+                changes['address']=csvfile['address'].iloc[0]
+            if bank:
+                changes['bank']=[bank]
+            else:
+                changes['bank']=csvfile['bank'].iloc[0]
+            if accnumber:
+                changes['accnumber']=[accnumber]
+            else:
+                changes['accnumber']=csvfile['bank'].iloc[0]
+
+            changestable=pd.DataFrame(changes)
+            changestable.to_csv('invoice.csv',index=False)
+            st.success("Invoice Saved")
+
+
+
+
+
 
 
 if menu=='Invoice Creator':
-    name2 = csvfile['Company Name'].iloc[0]
-    country2 = csvfile['Company Country'].iloc[0]
-    accname2 = csvfile['Account Name'].iloc[0]
-    address2 = csvfile['Company Adress'].iloc[0]
-    bank2 = csvfile['Bank Name'].iloc[0]
-    accnumber2 = csvfile['Account Number'].iloc[0]
+    name2 = csvfile['name'].iloc[0]
+    country2 = csvfile['country'].iloc[0]
+    accname2 = csvfile['accname'].iloc[0]
+    address2 = csvfile['address'].iloc[0]
+    bank2 = csvfile['bank'].iloc[0]
+    accnumber2 = csvfile['accnumber'].iloc[0]
 
 
     st.sidebar.write("**OPTIONAL**")
