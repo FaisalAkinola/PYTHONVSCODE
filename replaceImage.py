@@ -5,7 +5,7 @@ st.header("Upload and Replace Image")
 uploadedfile=st.file_uploader("Upload an Image",type=['png','jpg','jpeg'])
 
 if uploadedfile:
-    filename='logo.png'
+    filename='logo.jpg'
 
     
     with open(filename, 'wb') as writename:
