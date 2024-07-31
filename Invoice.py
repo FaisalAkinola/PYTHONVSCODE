@@ -6,7 +6,7 @@ csvfile=pd.read_csv('invoice.csv')
 
 st.set_page_config(page_title="Invoice Generator",page_icon=":cyclone",layout="centered",initial_sidebar_state='expanded')
 
-image_url="https://github.com/FaisalAkinola/PYTHONVSCODE/blob/main/logo.jpg?raw=true"
+image_url="https://raw.githubusercontent.com/FaisalAkinola/PYTHONVSCODE/main/logo.jpg"
 
 
 
