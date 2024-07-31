@@ -16,8 +16,8 @@ if menu=='Change Details':
     adminpass=st.sidebar.text_input("Enter Admin Password",type='password')
     if adminpass=='12345':
         logo=st.file_uploader("Change Your Logo Here",type=['jpg','png','jpeg'])
-
-        if logo:
+        savelogo=st.button("Save Image")
+        if savelogo:
             filename='logo.jpg'
 
     
