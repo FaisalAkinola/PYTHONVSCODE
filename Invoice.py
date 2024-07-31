@@ -91,7 +91,7 @@ if menu=='Invoice Creator':
     
     Image1,Image2,Image3=st.columns(3)
     with Image1:
-        st.image("Logo.jpg",width=50)
+        st.image("logo.jpg",width=50)
     col1,col2=st.columns(2)
     with Image3:
         st.title(":blue[Invoice]")
@@ -191,7 +191,7 @@ if menu=='Invoice Creator':
         colw=90
         colh=10
         pdf.set_font("Times", size=25,style='B')
-        pdf.image("Logo.jpg",x=colx1,y=coly1,w=25)
+        pdf.image("logo.jpg",x=colx1,y=coly1,w=25)
         pdf.set_xy(colx1+130,coly1)
         pdf.cell(colw,colh, txt='INVOICE',ln=True,align='L')
 
