@@ -1,10 +1,11 @@
 import streamlit as st
 st.set_page_config(layout='wide')
 import pandas as pd
+import plotly.express as px
 
 csvlink=pd.read_csv('scores.csv')
 
-menu=st.sidebar.selectbox('Select Menu',['Scores Input','Database'])
+menu=st.sidebar.selectbox('Select Menu',['Scores Input','Database|Chart'])
 colu1,colu2,colu3=st.columns([1,2,1])
 if menu == 'Scores Input':
     with colu2:
@@ -54,5 +55,32 @@ if menu == 'Scores Input':
             new_table = pd.concat([csvlink,students_table],ignore_index=True) #this will merge the two dataframes together
             new_table.to_csv("scores.csv",index=False)#both should ignore index positions in the table
 
-if menu == 'Database':
+if menu == 'Database|Chart':
+    cola1,cola2,cola3=st.columns([1,2,1])
+    with cola2:
+        st.header("Students Database")   
     st.table(csvlink)
+    
+    subjects=['Mathematics','English','Geography','History','Science','Arabic']
+    subjectstable=csvlink[subjects].mean().reset_index()
+    renamedcolumns=subjectstable.rename(columns={'index':'Subject',0:'Average'})
+   # st.table(renamedcolumns)
+    
+
+    chart1,chart2,chart3=st.columns(3)
+    with chart1:
+        choosechart=st.radio("Choose Chart to Plot",['Barchart','Piechart'],horizontal=True)
+        choosesubject=st.multiselect("Choose Subject")
+
+
+    barchart=px.bar(renamedcolumns, x='Subject', y='Average')
+    piechart=px.pie(renamedcolumns, names='Subject', values='Average' )
+    colb1,colb2,colb3=st.columns(3)
+    # with colb2:
+        # chart=st.selectbox('Select Chart',['Pie Chart','Bar Chart'])
+    if choosechart == 'Bar Chart':
+        st.plotly_chart(barchart)
+
+    if choosechart=='Pie Chart':
+        st.plotly_chart(piechart)
+
