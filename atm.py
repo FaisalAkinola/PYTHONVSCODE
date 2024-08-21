@@ -13,8 +13,6 @@ pic1,pic2,pic3=st.columns([1,3,1])
 filename='banklogo.png'
 with pic1:
     st.image(filename)
-with pic2:    
-    st.title("Online ATM")
 with pic3:
     st.image(filename)
 deposit=0
@@ -35,7 +33,7 @@ if withdrawal>balance2:
 else:
     with cola1:
         st.write("Bank Balance")
-        st.subheader(f'{balance2}')
+        st.subheader(f'**{balance2}**')
     with cola2:
-        st.write(f"+{deposit}")
-        st.write(f"-{withdrawal}")
+        st.write(f"+${deposit}")
+        st.write(f"-${withdrawal}")
