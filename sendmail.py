@@ -15,15 +15,16 @@ body=st.text_area("Enter Email Content Here",height=200)
 if st.button("Send Mail"):
 
     email=EmailMessage()
-    email["From"]=sender
+    email['From']=sender
     email['To']=receiver
-    email['Subject']=subject
+    email['subject']=subject
     email.set_content(body)
     securecontents=ssl.create_default_context()
 
-    with smtplib.SMTP_SSL ('smtp.gmail.com',456,context=securecontents) as smtp:
+    with smtplib.SMTP_SSL('smtp.gmail.com',456,context=securecontents) as smtp:
         smtp.login(sender,password)
         smtp.sendmail(sender,receiver,email.as_string())
+        st.success("Email Sent")
 
 
 
