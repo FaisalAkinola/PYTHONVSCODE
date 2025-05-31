@@ -101,18 +101,27 @@ if menu=='Quiz Statistics':
     melt_table=quizscores.melt(var_name='Name', value_name='Score')
     melt_table['Percentage'] = ((melt_table['Score']/12.0)*100).round(1)
 
+    chart=st.sidebar.pills("",["Pie Chart","Bar Chart"])
+
+
 
     st.table(melt_table)
 
     piechart=px.pie(melt_table, names='Name', values='Score')
     barchart=px.bar(melt_table, x='Name', y='Score')
 
-    percentbar=px.bar(melt_table, x='Name', y='Percentage')
-    percentpie=px.pie(melt_table, names='Name', values='Percentage')
-    st.plotly_chart(piechart)
-    st.plotly_chart(percentpie)
-    st.plotly_chart(barchart)
-    st.plotly_chart(percentbar)
+    # percentbar=px.bar(melt_table, x='Name', y='Percentage')
+    # percentpie=px.pie(melt_table, names='Name', values='Percentage')
+    # st.plotly_chart(piechart)
+    # st.plotly_chart(percentpie)
+    # st.plotly_chart(barchart)
+    # st.plotly_chart(percentbar)
+
+    if chart=="Pie Chart":
+            st.plotly_chart(piechart)
+    if chart=="Bar Chart":
+        st.plotly_chart(barchart)
+        
 
 
             
