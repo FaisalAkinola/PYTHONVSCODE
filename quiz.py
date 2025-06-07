@@ -22,7 +22,7 @@ if menu=='Take Quiz':
         with col1:
             q1=st.selectbox("What is the capital of Russia?",['Choose','Kiev','Moscow','Stockholm','Berlin'])
             q2=st.selectbox("What is the square root of 81?",['Choose','99','9','8','81'])
-            q3=st.selectbox("How many miles does 1 kilometer equal?",['Choose','15','2.4','1.6','8.64'])
+            q3=st.selectbox("How many kilometers does 1 milse equal?",['Choose','15','2.4','1.6','8.64'])
             q4=st.selectbox("What year did WW2 start?",['Choose','1941','1939','1936','1945'])
             q5=st.selectbox("Who discovered gravity?",['Choose','Albert Einstein','Da Vinci','Isaac Newton','Neil Armstrong'])
             q6=st.selectbox("What is waters chemical formula?",['Choose','H2O','CO2','2HO','WTR'])
