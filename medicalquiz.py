@@ -430,11 +430,16 @@ if menu=="View Results":
     melt["Percentage"]=((melt["Score"]/20.0)*100)
     st.write(melt)
     
+
+    chart=st.pills("Choose A Chart",["Bar","Pie"])
+
     pie=px.pie(melt, names='Name', values='Score')
     bar=px.bar(melt, x='Name', y='Score')
 
-    st.plotly_chart(bar)
-    st.plotly_chart(pie)
+    if chart=="Bar":
+        st.plotly_chart(bar)
+    if chart=="Pie":    
+        st.plotly_chart(pie)
 
 
  
