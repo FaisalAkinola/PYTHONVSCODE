@@ -431,7 +431,7 @@ if menu=="View Results":
     st.write(melt)
     
 
-    chart=st.pills("Choose A Chart",["Bar","Pie"])
+    chart=st.radio("Choose A Chart",["Bar","Pie"])
 
     pie=px.pie(melt, names='Name', values='Score')
     bar=px.bar(melt, x='Name', y='Score')
