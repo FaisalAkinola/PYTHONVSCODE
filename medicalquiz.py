@@ -15,7 +15,7 @@ menu=st.sidebar.selectbox("Menu",["Take Quiz","View Results"])
 if menu=="Take Quiz":
     if 'currentpage' not in st.session_state:
         st.session_state.currentpage = 'homepage'
-    st.write(st.session_state)
+    # st.write(st.session_state)
 
     def home():
 
