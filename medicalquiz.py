@@ -428,7 +428,7 @@ if menu=="Take Quiz":
 if menu=="View Results":
     melt=score.melt(var_name="Name", value_name="Score")
     melt["Percentage"]=((melt["Score"]/20.0)*100)
-    with st.toggle("View Quiz Table"):
+    with st.expander("View Quiz Table"):
         st.table(melt)
     
 
