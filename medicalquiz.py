@@ -375,7 +375,7 @@ if menu=="Take Quiz":
                     st.rerun()
             else:
                 st.success("Quiz Completed!")
-                if st.button("Restart Quiz"):
+                if st.button("Back to Home"):
                     st.session_state.currentpage='homepage'
                     st.rerun()
 
@@ -428,7 +428,8 @@ if menu=="Take Quiz":
 if menu=="View Results":
     melt=score.melt(var_name="Name", value_name="Score")
     melt["Percentage"]=((melt["Score"]/20.0)*100)
-    st.write(melt)
+    with st.toggle("View Quiz Table"):
+        st.table(melt)
     
 
     chart=st.radio("Choose A Chart",["Bar","Pie"])
