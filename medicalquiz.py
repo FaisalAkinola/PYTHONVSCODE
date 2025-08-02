@@ -7,7 +7,7 @@ link="medicalquiz.csv"
 try:
     score=pd.read_csv(link)
 except:
-    score=pd.DataFrame()                       
+    score=pd.DataFrame()                 
 
 
 menu=st.sidebar.selectbox("Menu",["Take Quiz","View Results"])
@@ -15,7 +15,8 @@ menu=st.sidebar.selectbox("Menu",["Take Quiz","View Results"])
 if menu=="Take Quiz":
     if 'currentpage' not in st.session_state:
         st.session_state.currentpage = 'homepage'
-    # st.write(st.session_state)
+        
+    st.write(st.session_state)
 
     def home():
 
@@ -27,6 +28,7 @@ if menu=="Take Quiz":
             if st.session_state.name:
                 
                 st.session_state.currentpage='qf1'
+            
                 score.loc[0, st.session_state.name]=0
                 score.to_csv(link, index=False)
                 st.rerun()
@@ -41,9 +43,10 @@ if menu=="Take Quiz":
         '---'
         q1=st.selectbox('What is the main job of your heart?',["Choose","A) Pumping blood","B) Digesting food","C) Storing energy","D) Breathing air"])
         if st.button("Next Question"):
-            if q1=="Choose": 
-                st.error("Enter an answer")
-            elif q1=="A) Pumping blood":
+            st.session_state.q1=q1
+            st.write(f"Current Answer {st.session_state.q1}")
+            
+            if q1=="A) Pumping blood":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf2'
@@ -58,9 +61,9 @@ if menu=="Take Quiz":
         '---'
         q2=st.selectbox('What do vaccines help protect you from?',["Choose","A) Common cold","B) Diseases like measles and flu","C) Cuts and bruises","D) None of the above"])
         if st.button("Next Question"):
-            if q2=="Choose":
-                st.error("Enter an answer")
-            elif q2=="B) Diseases like measles and flu":
+            st.session_state.q2=q2
+             
+            if q2=="B) Diseases like measles and flu":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf3'
@@ -68,6 +71,9 @@ if menu=="Take Quiz":
             else:
                 st.session_state.currentpage='qf3'
                 st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage='qf1'
+            st.rerun
 
     def qf3():
         st.subheader('Question 3')
@@ -75,9 +81,9 @@ if menu=="Take Quiz":
         '---'
         q3=st.selectbox('Why is it important to wash your hands?',["Choose","A) To smell nice","B) To prevent getting sick","C) To look clean","D) None of the above"])
         if st.button("Next Question"):
-            if q3=="Choose":
-                st.error("Enter an answer")
-            elif q3=="B) To prevent getting sick":
+            st.session_state.q3=q3
+            
+            if q3=="B) To prevent getting sick":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf4'
@@ -85,6 +91,10 @@ if menu=="Take Quiz":
             else:
                 st.session_state.currentpage='qf4'
                 st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage='qf2'
+            st.rerun
+  
 
     def qf4():
         st.subheader('Question 4')
@@ -92,9 +102,9 @@ if menu=="Take Quiz":
         '---'
         q4=st.selectbox('What should you do if you have a fever?',["Choose","A) Go play outside","B) Tell an adult and rest","C) Eat a lot of candy","D) Stay up late"])
         if st.button("Next Question"):
-            if q4=="Choose":
-                st.error("Enter an answer")
-            elif q4=="B) Tell an adult and rest":
+            st.session_state.q4=q4
+            
+            if q4=="B) Tell an adult and rest":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf5'
@@ -109,9 +119,9 @@ if menu=="Take Quiz":
         '---'
         q5=st.selectbox('What does a doctor do?',["Choose","A) Fix cars","B) Help people stay healthy","C) Teach math","D) None of the above"])
         if st.button("Next Question"):
-            if q5=="Choose":
-                st.error("Enter an answer")
-            elif q5=="B) Help people stay healthy":
+            st.session_state.q5=q5
+            
+            if q5=="B) Help people stay healthy":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf6'
@@ -126,9 +136,9 @@ if menu=="Take Quiz":
         '---'
         q6=st.selectbox('What is a healthy snack?',["Choose","A) Candy","B) Fruits and vegetables","C) Chips","D) Soda"])
         if st.button("Next Question"):
-            if q6=="Choose":
-                st.error("Enter an answer")
-            elif q6=="B) Fruits and vegetables":
+            st.session_state.q6=q6
+            
+            if q6=="B) Fruits and vegetables":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf7'
@@ -143,9 +153,9 @@ if menu=="Take Quiz":
         '---'
         q7 = st.selectbox('What does it mean to be allergic to something?', ["Choose", "A) You like it a lot", "B) Your body reacts badly to it", "C) You can’t eat it", "D) None of the above"])
         if st.button("Next Question"):
-            if q7 == "Choose":
-                st.error("Enter an answer")
-            elif q7 == "B) Your body reacts badly to it":
+            st.session_state.q7=q7
+            
+            if q7 == "B) Your body reacts badly to it":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf8'
@@ -160,9 +170,9 @@ if menu=="Take Quiz":
         '---'
         q8 = st.selectbox('What should you do if you get a cut?', ["Choose", "A) Ignore it", "B) Wash it and put a bandage on it", "C) Show it to your friends", "D) None of the above"])
         if st.button("Next Question"):
-            if q8 == "Choose":
-                st.error("Enter an answer")
-            elif q8 == "B) Wash it and put a bandage on it":
+            st.session_state.q8=q8
+            
+            if q8 == "B) Wash it and put a bandage on it":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf9'
@@ -177,9 +187,9 @@ if menu=="Take Quiz":
         '---'
         q9 = st.selectbox('Why is it important to eat breakfast?', ["Choose", "A) It’s the best meal of the day", "B) It gives you energy for school", "C) You can skip it", "D) None of the above"])
         if st.button("Next Question"):
-            if q9 == "Choose":
-                st.error("Enter an answer")
-            elif q9 == "B) It gives you energy for school":
+            st.session_state.q9=q9
+            
+            if q9 == "B) It gives you energy for school":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf10'
@@ -194,9 +204,9 @@ if menu=="Take Quiz":
         '---'
         q10 = st.selectbox('What is one way to keep your bones strong?', ["Choose", "A) Eating junk food", "B) Drinking milk or eating dairy", "C) Avoiding exercise", "D) None of the above"])
         if st.button("Next Question"):
-            if q10 == "Choose":
-                st.error("Enter an answer")
-            elif q10 == "B) Drinking milk or eating dairy":
+            st.session_state.q10=q10
+            
+            if q10 == "B) Drinking milk or eating dairy":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf11'
@@ -211,9 +221,9 @@ if menu=="Take Quiz":
         '---'
         q11 = st.selectbox('What is the purpose of first aid?', ["Choose", "A) To help with homework", "B) To give immediate care in emergencies", "C) To make food", "D) None of the above"])
         if st.button("Next Question"):
-            if q11 == "Choose":
-                st.error("Enter an answer")
-            elif q11 == "B) To give immediate care in emergencies":
+            st.session_state.q11=q11
+            
+            if q11 == "B) To give immediate care in emergencies":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf12'
@@ -228,9 +238,9 @@ if menu=="Take Quiz":
         '---'
         q12 = st.selectbox('What can help you breathe better when you’re sick?', ["Choose", "A) Eating ice cream", "B) Drinking warm fluids", "C) Running around", "D) None of the above"])
         if st.button("Next Question"):
-            if q12 == "Choose":
-                st.error("Enter an answer")
-            elif q12 == "B) Drinking warm fluids":
+            st.session_state.q12=q12
+            
+            if q12 == "B) Drinking warm fluids":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf13'
@@ -245,9 +255,9 @@ if menu=="Take Quiz":
         '---'
         q13 = st.selectbox('What is a common symptom of a cold?', ["Choose", "A) Runny nose", "B) Happy thoughts", "C) Dancing", "D) None of the above"])
         if st.button("Next Question"):
-            if q13 == "Choose":
-                st.error("Enter an answer")
-            elif q13 == "A) Runny nose":
+            st.session_state.q13=q13
+            
+            if q13 == "A) Runny nose":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf14'
@@ -262,9 +272,9 @@ if menu=="Take Quiz":
         '---'
         q14 = st.selectbox('Why should you cover your mouth when you cough?', ["Choose", "A) To look funny", "B) To prevent spreading germs", "C) To make a sound", "D) None of the above"])
         if st.button("Next Question"):
-            if q14 == "Choose":
-                st.error("Enter an answer")
-            elif q14 == "B) To prevent spreading germs":
+            st.session_state.q14=q14
+            
+            if q14 == "B) To prevent spreading germs":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf15'
@@ -279,9 +289,9 @@ if menu=="Take Quiz":
         '---'
         q15 = st.selectbox('What is a safe way to exercise?', ["Choose", "A) Jumping on the bed", "B) Playing sports or riding a bike", "C) Sitting all day", "D) None of the above"])
         if st.button("Next Question"):
-            if q15 == "Choose":
-                st.error("Enter an answer")
-            elif q15 == "B) Playing sports or riding a bike":
+            st.session_state.q15=q15
+            
+            if q15 == "B) Playing sports or riding a bike":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf16'
@@ -296,9 +306,9 @@ if menu=="Take Quiz":
         '---'
         q16 = st.selectbox('What does a dentist check?', ["Choose", "A) Your eyes", "B) Your teeth", "C) Your hair", "D) None of the above"])
         if st.button("Next Question"):
-            if q16 == "Choose":
-                st.error("Enter an answer")
-            elif q16 == "B) Your teeth":
+            st.session_state.q16=q16
+            
+            if q16 == "B) Your teeth":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf17'
@@ -313,9 +323,9 @@ if menu=="Take Quiz":
         '---'
         q17 = st.selectbox('What should you do if you feel dizzy?', ["Choose", "A) Keep running", "B) Sit down and tell an adult", "C) Eat a lot of candy", "D) None of the above"])
         if st.button("Next Question"):
-            if q17 == "Choose":
-                st.error("Enter an answer")
-            elif q17 == "B) Sit down and tell an adult":
+            st.session_state.q17=q17
+            
+            if q17 == "B) Sit down and tell an adult":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf18'
@@ -330,9 +340,9 @@ if menu=="Take Quiz":
         '---'
         q18 = st.selectbox('What is the main function of your lungs?', ["Choose", "A) To pump blood", "B) To help you breathe", "C) To digest food", "D) None of the above"])
         if st.button("Next Question"):
-            if q18 == "Choose":
-                st.error("Enter an answer")
-            elif q18 == "B) To help you breathe":
+            st.session_state.q18=q18
+            
+            if q18 == "B) To help you breathe":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf19'
@@ -347,9 +357,9 @@ if menu=="Take Quiz":
         '---'
         q19 = st.selectbox('What can help you stay healthy during cold and flu season?', ["Choose", "A) Washing hands frequently", "B) Eating more sweets", "C) Skipping sleep", "D) None of the above"])
         if st.button("Next Question"):
-            if q19 == "Choose":
-                st.error("Enter an answer")
-            elif q19 == "A) Washing hands frequently":
+            st.session_state.q19=q19
+            
+            if q19 == "A) Washing hands frequently":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.session_state.currentpage='qf20'
@@ -364,9 +374,9 @@ if menu=="Take Quiz":
         '---'
         q20 = st.selectbox('What does it mean if someone has a headache?', ["Choose", "A) They are happy", "B) They might need rest or water", "C) They want to play", "D) None of the above"])
         if st.pills('Finish',['Finish'],label_visibility='hidden'):
-            if q20 == "Choose":
-                st.error("Enter an answer")
-            elif q20 == "B) They might need rest or water":
+            st.session_state.q20=q20
+            
+            if q20 == "B) They might need rest or water":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
                 st.success("Quiz Completed!")
@@ -424,6 +434,8 @@ if menu=="Take Quiz":
         qf19()
     elif st.session_state.currentpage =='qf20':
         qf20()
+    # if q1=="Choose": 
+    #   st.error("Enter an answer")
 
 if menu=="View Results":
     melt=score.melt(var_name="Name", value_name="Score")
@@ -443,7 +455,8 @@ if menu=="View Results":
         st.plotly_chart(pie)
 
 
- 
+
+
 
 
 
