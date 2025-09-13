@@ -1,22 +1,55 @@
 import streamlit as st 
 import pandas as pd
 import plotly.express as px
-
+from fpdf import FPDF
+import datetime
+import base64
 
 link="medicalquiz.csv"
+
 try:
     score=pd.read_csv(link)
 except:
     score=pd.DataFrame()                 
 
 
-menu=st.sidebar.selectbox("Menu",["Take Quiz","View Results"])
+menu=st.sidebar. selectbox("Menu",["Take Quiz","View Results"])
+
+def generate_pdf():
+    pdf=FPDF(orientation = 'Landscape', format = 'A4')
+    pdf.add_page()
+
+    colx=20
+    coly=25
+
+    colw=90
+    colh=10
+    imageurl='certificate.png'
+
+    pdf.image(imageurl, x=0, y=0, w=300, h=200)
+    pdf.set_font("Helvetica", size=40, style='I')
+    pdf.set_xy(colx+80, coly+68)
+    pdf.cell(colw,colh, txt=st.session_state.user, align='C')
+
+    pdf.set_font("Times", size=24)
+    pdf.set_xy(colx+27, coly+125)
+    pdf.cell(colw,colh, txt=f"{st.session_state.score}%", align='C')
+
+    pdf.set_xy(colx+145, coly+125)
+    pdf.cell(colw,colh, txt=f"{st.session_state.date}", align='C')
+
+
+    pdf_file=f'{st.session_state.user}certificate.pdf'
+    pdf.output(pdf_file)
+    return pdf_file
+
+
 
 if menu=="Take Quiz":
     if 'currentpage' not in st.session_state:
         st.session_state.currentpage = 'homepage'
         
-    st.write(st.session_state)
+    # st.write(st.session_state)
 
     def home():
 
@@ -28,6 +61,8 @@ if menu=="Take Quiz":
             if st.session_state.name:
                 
                 st.session_state.currentpage='qf1'
+                date=datetime.datetime.now()
+                st.session_state.date=date.strftime("%d-%m-%Y")
             
                 score.loc[0, st.session_state.name]=0
                 score.to_csv(link, index=False)
@@ -38,356 +73,614 @@ if menu=="Take Quiz":
 
 
     def qf1():
-        st.subheader('Question 1')
+        col1, col2 =st.columns(2)
+        with col1:
+            st.subheader('Question 1')
+        
+
         st.write('')
         '---'
-        q1=st.selectbox('What is the main job of your heart?',["Choose","A) Pumping blood","B) Digesting food","C) Storing energy","D) Breathing air"])
-        if st.button("Next Question"):
+
+        q1=st. pills('What is the main job of your heart?',[ "A) Pumping blood","B) Digesting food","C) Storing energy","D) Breathing air"])  
+        if q1:
             st.session_state.q1=q1
-            st.write(f"Current Answer {st.session_state.q1}")
-            
-            if q1=="A) Pumping blood":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf2'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf2'
-                st.rerun() 
+        with col2:
+            try:
+                if st.session_state.q1== None:
+                    st.info("Current Answer: None Selected")
+                    
+                        
+                else:
+                    st.info(f"Current Answer: {st.session_state.q1}")
+                        
+            except:  
+                st.info("Current Answer: None Selected")   
+
+
+        if st.button("Next Question"):
+            st.session_state.currentpage='qf2'
+            st.rerun()
+
 
     def qf2():
-        st.subheader('Question 2')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 2')
         st.write('')
         '---'
-        q2=st.selectbox('What do vaccines help protect you from?',["Choose","A) Common cold","B) Diseases like measles and flu","C) Cuts and bruises","D) None of the above"])
+        q2 = st.pills('What do vaccines help protect you from?', ["A) Common cold","B) Diseases like measles and flu","C) Cuts and bruises","D) None of the above"])
+        if q2:
+            st.session_state.q2 = q2
+        with col2:
+            try:
+                if st.session_state.q2 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q2}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q2=q2
-             
-            if q2=="B) Diseases like measles and flu":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf3'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf3'
-                st.rerun()
+            st.session_state.currentpage = 'qf3'
+            st.rerun()
         if st.button("Previous Question"):
-            st.session_state.currentpage='qf1'
-            st.rerun
+            st.session_state.currentpage = 'qf1'
+            st.rerun()
+
 
     def qf3():
-        st.subheader('Question 3')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 3')
         st.write('')
         '---'
-        q3=st.selectbox('Why is it important to wash your hands?',["Choose","A) To smell nice","B) To prevent getting sick","C) To look clean","D) None of the above"])
+        q3 = st.pills('Why is it important to wash your hands?', ["A) To smell nice","B) To prevent getting sick","C) To look clean","D) None of the above"])
+        if q3:
+            st.session_state.q3 = q3
+        with col2:
+            try:
+                if st.session_state.q3 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q3}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q3=q3
-            
-            if q3=="B) To prevent getting sick":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf4'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf4'
-                st.rerun()
+            st.session_state.currentpage = 'qf4'
+            st.rerun()
         if st.button("Previous Question"):
-            st.session_state.currentpage='qf2'
-            st.rerun
+            st.session_state.currentpage = 'qf2'
+            st.rerun()
+
   
 
     def qf4():
-        st.subheader('Question 4')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 4')
         st.write('')
         '---'
-        q4=st.selectbox('What should you do if you have a fever?',["Choose","A) Go play outside","B) Tell an adult and rest","C) Eat a lot of candy","D) Stay up late"])
+        q4 = st.pills('What should you do if you have a fever?', ["A) Go play outside","B) Tell an adult and rest","C) Eat a lot of candy","D) Stay up late"])
+        if q4:
+            st.session_state.q4 = q4
+        with col2:
+            try:
+                if st.session_state.q4 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q4}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q4=q4
-            
-            if q4=="B) Tell an adult and rest":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf5'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf5'
-                st.rerun()
+            st.session_state.currentpage = 'qf5'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf3'
+            st.rerun()
 
     def qf5():
-        st.subheader('Question 5')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 5')
         st.write('')
         '---'
-        q5=st.selectbox('What does a doctor do?',["Choose","A) Fix cars","B) Help people stay healthy","C) Teach math","D) None of the above"])
+        q5 = st.pills('What does a doctor do?', ["A) Fix cars","B) Help people stay healthy","C) Teach math","D) None of the above"])
+        if q5:
+            st.session_state.q5 = q5
+        with col2:
+            try:
+                if st.session_state.q5 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q5}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q5=q5
-            
-            if q5=="B) Help people stay healthy":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf6'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf6'
-                st.rerun()
+            st.session_state.currentpage = 'qf6'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf4'
+            st.rerun()
 
     def qf6():
-        st.subheader('Question 6')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 6')
         st.write('')
         '---'
-        q6=st.selectbox('What is a healthy snack?',["Choose","A) Candy","B) Fruits and vegetables","C) Chips","D) Soda"])
+        q6 = st.pills('What is a healthy snack?', ["A) Candy","B) Fruits and vegetables","C) Chips","D) Soda"])
+        if q6:
+            st.session_state.q6 = q6
+        with col2:
+            try:
+                if st.session_state.q6 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q6}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q6=q6
-            
-            if q6=="B) Fruits and vegetables":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf7'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf7'
-                st.rerun()
+            st.session_state.currentpage = 'qf7'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf5'
+            st.rerun()
 
     def qf7():
-        st.subheader('Question 7')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 7')
         st.write('')
         '---'
-        q7 = st.selectbox('What does it mean to be allergic to something?', ["Choose", "A) You like it a lot", "B) Your body reacts badly to it", "C) You can’t eat it", "D) None of the above"])
+        q7 = st.pills('What does it mean to be allergic to something?', ["A) You like it a lot","B) Your body reacts badly to it","C) You can’t eat it","D) None of the above"])
+        if q7:
+            st.session_state.q7 = q7
+        with col2:
+            try:
+                if st.session_state.q7 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q7}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q7=q7
-            
-            if q7 == "B) Your body reacts badly to it":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf8'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf8'
-                st.rerun()
+            st.session_state.currentpage = 'qf8'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf6'
+            st.rerun()
 
     def qf8():
-        st.subheader('Question 8')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 8')
         st.write('')
         '---'
-        q8 = st.selectbox('What should you do if you get a cut?', ["Choose", "A) Ignore it", "B) Wash it and put a bandage on it", "C) Show it to your friends", "D) None of the above"])
+        q8 = st.pills('What should you do if you get a cut?', ["A) Ignore it","B) Wash it and put a bandage on it","C) Show it to your friends","D) None of the above"])
+        if q8:
+            st.session_state.q8 = q8
+        with col2:
+            try:
+                if st.session_state.q8 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q8}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q8=q8
-            
-            if q8 == "B) Wash it and put a bandage on it":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf9'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf9'
-                st.rerun()
+            st.session_state.currentpage = 'qf9'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf7'
+            st.rerun()
 
     def qf9():
-        st.subheader('Question 9')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 9')
         st.write('')
         '---'
-        q9 = st.selectbox('Why is it important to eat breakfast?', ["Choose", "A) It’s the best meal of the day", "B) It gives you energy for school", "C) You can skip it", "D) None of the above"])
+        q9 = st.pills('Why is it important to eat breakfast?', ["A) It’s the best meal of the day","B) It gives you energy for school","C) You can skip it","D) None of the above"])
+        if q9:
+            st.session_state.q9 = q9
+        with col2:
+            try:
+                if st.session_state.q9 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q9}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q9=q9
-            
-            if q9 == "B) It gives you energy for school":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf10'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf10'
-                st.rerun()
+            st.session_state.currentpage = 'qf10'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf8'
+            st.rerun()
 
     def qf10():
-        st.subheader('Question 10')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 10')
         st.write('')
         '---'
-        q10 = st.selectbox('What is one way to keep your bones strong?', ["Choose", "A) Eating junk food", "B) Drinking milk or eating dairy", "C) Avoiding exercise", "D) None of the above"])
+        q10 = st.pills('What is one way to keep your bones strong?', ["A) Eating junk food","B) Drinking milk or eating dairy","C) Avoiding exercise","D) None of the above"])
+        if q10:
+            st.session_state.q10 = q10
+        with col2:
+            try:
+                if st.session_state.q10 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q10}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q10=q10
-            
-            if q10 == "B) Drinking milk or eating dairy":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf11'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf11'
-                st.rerun()
+            st.session_state.currentpage = 'qf11'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf9'
+            st.rerun()
 
     def qf11():
-        st.subheader('Question 11')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 11')
         st.write('')
         '---'
-        q11 = st.selectbox('What is the purpose of first aid?', ["Choose", "A) To help with homework", "B) To give immediate care in emergencies", "C) To make food", "D) None of the above"])
+        q11 = st.pills('What is the purpose of first aid?', ["A) To help with homework","B) To give immediate care in emergencies","C) To make food","D) None of the above"])
+        if q11:
+            st.session_state.q11 = q11
+        with col2:
+            try:
+                if st.session_state.q11 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q11}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q11=q11
-            
-            if q11 == "B) To give immediate care in emergencies":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf12'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf12'
-                st.rerun()
+            st.session_state.currentpage = 'qf12'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf10'
+            st.rerun()
 
     def qf12():
-        st.subheader('Question 12')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 12')
         st.write('')
         '---'
-        q12 = st.selectbox('What can help you breathe better when you’re sick?', ["Choose", "A) Eating ice cream", "B) Drinking warm fluids", "C) Running around", "D) None of the above"])
+        q12 = st.pills('What can help you breathe better when you’re sick?', ["A) Eating ice cream","B) Drinking warm fluids","C) Running around","D) None of the above"])
+        if q12:
+            st.session_state.q12 = q12
+        with col2:
+            try:
+                if st.session_state.q12 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q12}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q12=q12
-            
-            if q12 == "B) Drinking warm fluids":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf13'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf13'
-                st.rerun()
+            st.session_state.currentpage = 'qf13'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf11'
+            st.rerun()
 
     def qf13():
-        st.subheader('Question 13')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 13')
         st.write('')
         '---'
-        q13 = st.selectbox('What is a common symptom of a cold?', ["Choose", "A) Runny nose", "B) Happy thoughts", "C) Dancing", "D) None of the above"])
+        q13 = st.pills('What is a common symptom of a cold?', ["A) Runny nose","B) Happy thoughts","C) Dancing","D) None of the above"])
+        if q13:
+            st.session_state.q13 = q13
+        with col2:
+            try:
+                if st.session_state.q13 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q13}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q13=q13
-            
-            if q13 == "A) Runny nose":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf14'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf14'
-                st.rerun()
+            st.session_state.currentpage = 'qf14'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf12'
+            st.rerun()
 
     def qf14():
-        st.subheader('Question 14')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 14')
         st.write('')
         '---'
-        q14 = st.selectbox('Why should you cover your mouth when you cough?', ["Choose", "A) To look funny", "B) To prevent spreading germs", "C) To make a sound", "D) None of the above"])
+        q14 = st.pills('Why should you cover your mouth when you cough?', ["A) To look funny","B) To prevent spreading germs","C) To make a sound","D) None of the above"])
+        if q14:
+            st.session_state.q14 = q14
+        with col2:
+            try:
+                if st.session_state.q14 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q14}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q14=q14
-            
-            if q14 == "B) To prevent spreading germs":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf15'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf15'
-                st.rerun()
+            st.session_state.currentpage = 'qf15'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf13'
+            st.rerun()
 
     def qf15():
-        st.subheader('Question 15')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 15')
         st.write('')
         '---'
-        q15 = st.selectbox('What is a safe way to exercise?', ["Choose", "A) Jumping on the bed", "B) Playing sports or riding a bike", "C) Sitting all day", "D) None of the above"])
+        q15 = st.pills('What is a safe way to exercise?', ["A) Jumping on the bed","B) Playing sports or riding a bike","C) Sitting all day","D) None of the above"])
+        if q15:
+            st.session_state.q15 = q15
+        with col2:
+            try:
+                if st.session_state.q15 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q15}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q15=q15
-            
-            if q15 == "B) Playing sports or riding a bike":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf16'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf16'
-                st.rerun()
+            st.session_state.currentpage = 'qf16'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf14'
+            st.rerun()
 
     def qf16():
-        st.subheader('Question 16')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 16')
         st.write('')
         '---'
-        q16 = st.selectbox('What does a dentist check?', ["Choose", "A) Your eyes", "B) Your teeth", "C) Your hair", "D) None of the above"])
+        q16 = st.pills('What does a dentist check?', ["A) Your eyes","B) Your teeth","C) Your hair","D) None of the above"])
+        if q16:
+            st.session_state.q16 = q16
+        with col2:
+            try:
+                if st.session_state.q16 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q16}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q16=q16
-            
-            if q16 == "B) Your teeth":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf17'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf17'
-                st.rerun()
+            st.session_state.currentpage = 'qf17'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf15'
+            st.rerun()
 
     def qf17():
-        st.subheader('Question 17')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 17')
         st.write('')
         '---'
-        q17 = st.selectbox('What should you do if you feel dizzy?', ["Choose", "A) Keep running", "B) Sit down and tell an adult", "C) Eat a lot of candy", "D) None of the above"])
+        q17 = st.pills('What should you do if you feel dizzy?', ["A) Keep running","B) Sit down and tell an adult","C) Eat a lot of candy","D) None of the above"])
+        if q17:
+            st.session_state.q17 = q17
+        with col2:
+            try:
+                if st.session_state.q17 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q17}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q17=q17
-            
-            if q17 == "B) Sit down and tell an adult":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf18'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf18'
-                st.rerun()
+            st.session_state.currentpage = 'qf18'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf16'
+            st.rerun()
 
     def qf18():
-        st.subheader('Question 18')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 18')
         st.write('')
         '---'
-        q18 = st.selectbox('What is the main function of your lungs?', ["Choose", "A) To pump blood", "B) To help you breathe", "C) To digest food", "D) None of the above"])
+        q18 = st.pills('What is the main function of your lungs?', ["A) To pump blood","B) To help you breathe","C) To digest food","D) None of the above"])
+        if q18:
+            st.session_state.q18 = q18
+        with col2:
+            try:
+                if st.session_state.q18 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q18}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q18=q18
-            
-            if q18 == "B) To help you breathe":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf19'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf19'
-                st.rerun()
+            st.session_state.currentpage = 'qf19'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf17'
+            st.rerun()
 
     def qf19():
-        st.subheader('Question 19')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 19')
         st.write('')
         '---'
-        q19 = st.selectbox('What can help you stay healthy during cold and flu season?', ["Choose", "A) Washing hands frequently", "B) Eating more sweets", "C) Skipping sleep", "D) None of the above"])
+        q19 = st.pills('What can help you stay healthy during cold and flu season?', ["A) Washing hands frequently","B) Eating more sweets","C) Skipping sleep","D) None of the above"])
+        if q19:
+            st.session_state.q19 = q19
+        with col2:
+            try:
+                if st.session_state.q19 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q19}")
+            except:
+                st.info("Current Answer: None Selected")
         if st.button("Next Question"):
-            st.session_state.q19=q19
-            
-            if q19 == "A) Washing hands frequently":
-                score.loc[0, st.session_state.name]+=1
-                score.to_csv(link, index=False)
-                st.session_state.currentpage='qf20'
-                st.rerun()
-            else:
-                st.session_state.currentpage='qf20'
-                st.rerun()
+            st.session_state.currentpage = 'qf20'
+            st.rerun()
+        if st.button("Previous Question"):
+            st.session_state.currentpage = 'qf18'
+            st.rerun()
 
     def qf20():
-        st.subheader('Question 20')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('Question 20')
         st.write('')
         '---'
-        q20 = st.selectbox('What does it mean if someone has a headache?', ["Choose", "A) They are happy", "B) They might need rest or water", "C) They want to play", "D) None of the above"])
-        if st.pills('Finish',['Finish'],label_visibility='hidden'):
-            st.session_state.q20=q20
-            
-            if q20 == "B) They might need rest or water":
+        q20 = st.pills('What does it mean if someone has a headache?', ["A) They are happy","B) They might need rest or water","C) They want to play","D) None of the above"])
+        if q20:
+            st.session_state.q20 = q20
+        with col2:
+            try:
+                if st.session_state.q20 == None:
+                    st.info("Current Answer: None Selected")
+                else:
+                    st.info(f"Current Answer: {st.session_state.q20}")
+            except:
+                st.info("Current Answer: None Selected")
+        finish=st.button('Finish')
+        if finish:
+            if 'q1' not in st.session_state:
+                st.error("Question 1 Has Not Been Answered")
+            elif st.session_state.q1=="A) Pumping blood":
                 score.loc[0, st.session_state.name]+=1
                 score.to_csv(link, index=False)
-                st.success("Quiz Completed!")
-                if st.button("Restart Quiz"):
-                    st.session_state.currentpage='homepage'
-                    st.rerun()
-            else:
-                st.success("Quiz Completed!")
-                if st.button("Back to Home"):
-                    st.session_state.currentpage='homepage'
-                    st.rerun()
+            if 'q2' not in st.session_state:
+                st.error("Question 2 Has Not Been Answered")
+            elif st.session_state.q2=="B) Diseases like measles and flu":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)
+            if 'q3' not in st.session_state:
+                st.error("Question 3 Has Not Been Answered")
+            elif st.session_state.q3=="B) To prevent getting sick":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)
+            if 'q4' not in st.session_state:
+                st.error("Question 4 Has Not Been Answered")
+            elif st.session_state.q4=="B) Tell an adult and rest":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)
+            if 'q5' not in st.session_state:
+                st.error("Question 5 Has Not Been Answered")
+            elif st.session_state.q5=="B) Help people stay healthy":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)
+            if 'q6' not in st.session_state:
+                st.error("Question 6 Has Not Been Answered")
+            elif st.session_state.q6=="B) Fruits and vegetables":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)
+            if 'q7' not in st.session_state:
+                st.error("Question 7 Has Not Been Answered")
+            elif st.session_state.q7=="B) Your body reacts badly to it":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)
+            if 'q8' not in st.session_state:
+                st.error("Question 8 Has Not Been Answered")
+            elif st.session_state.q8=="B) Wash it and put a bandage on it":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)
+            if 'q9' not in st.session_state:
+                st.error("Question 9 Has Not Been Answered")
+            elif st.session_state.q9=="B) It gives you energy for school":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)
+            if 'q10' not in st.session_state:
+                st.error("Question 10 Has Not Been Answered")
+            elif st.session_state.q10=="B) Drinking milk or eating dairy":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)
+            if 'q11' not in st.session_state:
+                st.error("Question 11 Has Not Been Answered")
+            elif st.session_state.q11=="B) To give immediate care in emergencies":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)   
+            if 'q12' not in st.session_state:
+                st.error("Question 12 Has Not Been Answered")
+            elif st.session_state.q12=="B) Drinking warm fluids":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)   
+            if 'q13' not in st.session_state:
+                st.error("Question 13 Has Not Been Answered")
+            elif st.session_state.q13=="A) Runny nose":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False) 
+            if 'q14' not in st.session_state:
+                st.error("Question 14 Has Not Been Answered")
+            elif st.session_state.q14=="B) To prevent spreading germs":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False) 
+            if 'q15' not in st.session_state:
+                st.error("Question 15 Has Not Been Answered")
+            elif st.session_state.q15=="B) Playing sports or riding a bike":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)
+            if 'q16' not in st.session_state:
+                st.error("Question 16 Has Not Been Answered")
+            elif st.session_state.q16=="B) Your teeth":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)
+            if 'q17' not in st.session_state:
+                st.error("Question 17 Has Not Been Answered")
+            elif st.session_state.q17=="B) Sit down and tell an adult":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)
+            if 'q18' not in st.session_state:
+                st.error("Question 18 Has Not Been Answered")
+            elif st.session_state.q18=="B) To help you breathe":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)
+            if 'q19' not in st.session_state:
+                st.error("Question 19 Has Not Been Answered")
+            elif st.session_state.q19=="A) Washing hands frequently":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)
+            if 'q20' not in st.session_state:
+                st.error("Question 20 as Not Been Answered")
+            elif st.session_state.q20=="B) They might need rest or water":
+                score.loc[0, st.session_state.name]+=1
+                score.to_csv(link, index=False)
+                
+            st.session_state.currentpage='summary'
+
+
+            
+                
+            
+
+        if st.button("Previous Question"):
+            st.session_state.currentpage='qf19'
+            st.rerun()
+
+
+
+    def summary():
+        st.success("You Have Finished Your Quiz")
+        
+        if st.button("Back to Home"):
+            st.session_state.currentpage='homepage'
+            st.rerun()
+
+
+
+
+        
 
     if st.session_state.currentpage == 'homepage':
         home()    
@@ -434,10 +727,12 @@ if menu=="Take Quiz":
         qf19()
     elif st.session_state.currentpage =='qf20':
         qf20()
-    # if q1=="Choose": 
-    #   st.error("Enter an answer")
+    elif st.session_state.currentpage =='summary':
+        summary()
 
 if menu=="View Results":
+    # st.write(st.session_state.date)
+
     melt=score.melt(var_name="Name", value_name="Score")
     melt["Percentage"]=((melt["Score"]/20.0)*100)
     with st.expander("View Quiz Table"):
@@ -453,15 +748,45 @@ if menu=="View Results":
         st.plotly_chart(bar)
     if chart=="Pie":    
         st.plotly_chart(pie)
+    
+
+    if st.sidebar.toggle("View Certificate"):
+            st.sidebar.write("---")
+            search=st.sidebar.text_input("Input Name")
+            st.sidebar.text_input("[Optional: Enter Email Adress]")
+            find=st.sidebar.button("Find User")
+            if find:
+                if search:
+                    
+                    search_result=melt[melt['Name'].str.lower()==search.lower()]
+                    st.session_state.user = str(search_result['Name'].iloc[0]).capitalize()
+                    st.session_state.score = str(search_result['Percentage'].iloc[0]).capitalize()
+                    # st.write(st.session_state.user)
+                    # st.write(search_result)
+                    # st.write(st.session_state.score)
+
+                    pdf_func = generate_pdf()
 
 
+    
+                    with open(pdf_func, 'rb') as binary:
+                        pdf_data = binary.read()
+
+                    col1,col2,col3,=st.columns(3)
+
+                    with col2:
+                        st.download_button(label=':blue[**Download File**]',data=pdf_data, file_name=f"{st.session_state.user}'s Certificate.pdf",mime='application/pdf')
+
+                    
+                    s1,s2,s3=st.columns([0.8,2,1.2])
+                    with s2:
+                        st.success(f"User {st.session_state.user}'s certificate was generated.")
+
+                    
+                        # if st.button(":blue[**View Certificate**]"):
+                        #     pdf_base64 = base64.b64encode(pdf_data).decode('utf-8')
+
+                        #     pdf_embed = f'<embed src="data:application/pdf;base64,{pdf_base64}" type="application/pdf" width="100%" height="600px" />'
 
 
-
-
-
-
-
-
-
-
+                        #     st.markdown(pdf_embed,unsafe_allow_html=True)
