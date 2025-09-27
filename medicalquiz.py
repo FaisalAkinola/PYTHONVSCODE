@@ -13,10 +13,18 @@ try:
 except:
     score=pd.DataFrame()                 
 
+if 'score' not in st.session_state:
+    st.session_state.score = 0
+
+if 'percentage' not in st.session_state:
+    st.session_state.percentage=0
+
+st.write(st.session_state.score)
+st.write(st.session_state.percentage)
 melt=score.melt(var_name="Name", value_name="Score")
 
 melt["Percentage"]=((melt["Score"]/20.0)*100)
-percentage = melt['Percentage'].iloc[0]
+
 
 menu=st.sidebar. selectbox("Menu",["Take Quiz","View Results"])
 # st.write(st.session_state)
@@ -38,7 +46,7 @@ def generate_pdf():
 
     pdf.set_font("Times", size=24)
     pdf.set_xy(colx+27, coly+125)
-    pdf.cell(colw,colh, txt=f"{percentage}%", align='C')
+    pdf.cell(colw,colh, txt=f"{st.session_state.percentage}%", align='C')
 
     pdf.set_xy(colx+145, coly+125)
     pdf.cell(colw,colh, txt=f"{st.session_state.date}", align='C')
@@ -71,7 +79,7 @@ if menu=="Take Quiz":
                 st.session_state.date=date.strftime("%d-%m-%Y")
                 
             
-                score.loc[0, st.session_state.name]=0
+                st.session_state.score=0
                 score.to_csv(link, index=False)
                 st.rerun()
             else:
@@ -568,102 +576,102 @@ if menu=="Take Quiz":
             if 'q1' not in st.session_state:
                 st.error("Question 1 Has Not Been Answered")
             elif st.session_state.q1=="A) Pumping blood":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
             if 'q2' not in st.session_state:
                 st.error("Question 2 Has Not Been Answered")
             elif st.session_state.q2=="B) Diseases like measles and flu":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
             if 'q3' not in st.session_state:
                 st.error("Question 3 Has Not Been Answered")
             elif st.session_state.q3=="B) To prevent getting sick":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
             if 'q4' not in st.session_state:
                 st.error("Question 4 Has Not Been Answered")
             elif st.session_state.q4=="B) Tell an adult and rest":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
             if 'q5' not in st.session_state:
                 st.error("Question 5 Has Not Been Answered")
             elif st.session_state.q5=="B) Help people stay healthy":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
             if 'q6' not in st.session_state:
                 st.error("Question 6 Has Not Been Answered")
             elif st.session_state.q6=="B) Fruits and vegetables":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
             if 'q7' not in st.session_state:
                 st.error("Question 7 Has Not Been Answered")
             elif st.session_state.q7=="B) Your body reacts badly to it":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
             if 'q8' not in st.session_state:
                 st.error("Question 8 Has Not Been Answered")
             elif st.session_state.q8=="B) Wash it and put a bandage on it":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
             if 'q9' not in st.session_state:
                 st.error("Question 9 Has Not Been Answered")
             elif st.session_state.q9=="B) It gives you energy for school":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
             if 'q10' not in st.session_state:
                 st.error("Question 10 Has Not Been Answered")
             elif st.session_state.q10=="B) Drinking milk or eating dairy":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
             if 'q11' not in st.session_state:
                 st.error("Question 11 Has Not Been Answered")
             elif st.session_state.q11=="B) To give immediate care in emergencies":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)   
             if 'q12' not in st.session_state:
                 st.error("Question 12 Has Not Been Answered")
             elif st.session_state.q12=="B) Drinking warm fluids":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)   
             if 'q13' not in st.session_state:
                 st.error("Question 13 Has Not Been Answered")
             elif st.session_state.q13=="A) Runny nose":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False) 
             if 'q14' not in st.session_state:
                 st.error("Question 14 Has Not Been Answered")
             elif st.session_state.q14=="B) To prevent spreading germs":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False) 
             if 'q15' not in st.session_state:
                 st.error("Question 15 Has Not Been Answered")
             elif st.session_state.q15=="B) Playing sports or riding a bike":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
             if 'q16' not in st.session_state:
                 st.error("Question 16 Has Not Been Answered")
             elif st.session_state.q16=="B) Your teeth":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
             if 'q17' not in st.session_state:
                 st.error("Question 17 Has Not Been Answered")
             elif st.session_state.q17=="B) Sit down and tell an adult":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
             if 'q18' not in st.session_state:
                 st.error("Question 18 Has Not Been Answered")
             elif st.session_state.q18=="B) To help you breathe":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
             if 'q19' not in st.session_state:
                 st.error("Question 19 Has Not Been Answered")
             elif st.session_state.q19=="A) Washing hands frequently":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
             if 'q20' not in st.session_state:
                 st.error("Question 20 as Not Been Answered")
             elif st.session_state.q20=="B) They might need rest or water":
-                score.loc[0, st.session_state.name]+=1
+                st.session_state.score+=1
                 score.to_csv(link, index=False)
                 
             st.session_state.currentpage='summary'
@@ -681,6 +689,9 @@ if menu=="Take Quiz":
 
     def summary():
         st.success("You Have Finished Your Quiz")
+        score.loc[0, st.session_state.name] = st.session_state.score
+        st.session_state.percentage=((st.session_state.score/20.0)*100)
+
 
 
 
