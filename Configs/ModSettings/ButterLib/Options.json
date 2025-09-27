@@ -1,0 +1,11 @@
+{
+  "Save System Enabled": true,
+  "Object System Enabled": true,
+  "MBSubModuleBase extended Enabled": true,
+  "Hot Keys Enabled": true,
+  "ExceptionHandlerSubSystem_DisableWhenDebuggerIsAttached": true,
+  "ExceptionHandler Enabled": true,
+  "Distance Matrix Enabled": false,
+  "CrashUploader Enabled": true,
+  "MinLogLevel": 2
+}

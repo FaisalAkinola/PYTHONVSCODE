@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<!-- xp to get from level 1 to level 2 -->
+	<Level1XP>600</Level1XP> 
+	<Level2XP>1700</Level2XP>
+	<Level3XP>3400</Level3XP>
+	<Level4XP>6000</Level4XP>
+	<Level5XP>9400</Level5XP>
+	<Level6XP>14000</Level6XP>
+	<Level7XP>20000</Level7XP>
+	<AIRecruitWanders>true</AIRecruitWanders>
+	<!-- allow retreat from random event battles -->
+	<AllowEventBattleSkip>true</AllowEventBattleSkip>
+	<XPtoWageRatio>20</XPtoWageRatio>
+	<PromotionToVassalXP>20000</PromotionToVassalXP>
+	<RetirementXP>10000</RetirementXP>
+	<MaxWage>1200</MaxWage>
+	<DailyXP>10</DailyXP>
+
+</Settings>

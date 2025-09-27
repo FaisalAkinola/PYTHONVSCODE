@@ -1,0 +1,232 @@
+[2025-07-30T12:59:44.8446531-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Loading implementations...
+[2025-07-30T12:59:44.9166965-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.0.0.dll
+[2025-07-30T12:59:45.1203905-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.0.1.dll
+[2025-07-30T12:59:45.2535410-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.0.2.dll
+[2025-07-30T12:59:45.3746801-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.0.3.dll
+[2025-07-30T12:59:45.5062998-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.0.dll
+[2025-07-30T12:59:45.6297307-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.1.dll
+[2025-07-30T12:59:45.7389929-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.2.dll
+[2025-07-30T12:59:45.8486539-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.3.dll
+[2025-07-30T12:59:45.9639352-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.4.dll
+[2025-07-30T12:59:46.0806928-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.5.dll
+[2025-07-30T12:59:46.1896418-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.6.dll
+[2025-07-30T12:59:46.2979901-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.10.dll
+[2025-07-30T12:59:46.4084274-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.11.dll
+[2025-07-30T12:59:46.4122083-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.4.dll
+[2025-07-30T12:59:46.5386257-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.5.dll
+[2025-07-30T12:59:46.6541962-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.6.dll
+[2025-07-30T12:59:46.7655905-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.7.dll
+[2025-07-30T12:59:46.8867899-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.8.dll
+[2025-07-30T12:59:47.0188960-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.9.dll
+[2025-07-30T12:59:47.1555723-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found no matching implementations. Loading the latest available
+[2025-07-30T12:59:47.1605723-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Implementation Bannerlord.ButterLib.Implementation.1.2.11.dll for game v1.2.11.0 is loaded
+[2025-07-30T12:59:47.1761657-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Finished loading implementations
+[2025-07-30T12:59:47.1792751-04:00] [Bannerlord.ButterLib.Implementation.SubModule] [INF]: Wrapping DebugManager of type TaleWorlds.MountAndBlade.MBDebugManager with DebugManagerWrapper
+[2025-07-30T13:00:24.6871285-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Bannerlord.UIExtenderEx.UIPatch - Register Types
+[2025-07-30T13:00:24.6917690-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Bannerlord.UIExtenderEx.UIPatch - Enabled
+[2025-07-30T13:00:24.6917690-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [ERR]: HarmonyExtensions.TryPatch: 'original' or all methods are null
+[2025-07-30T13:00:24.6917690-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Loading implementations...
+[2025-07-30T13:00:24.6917690-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.0.0.dll
+[2025-07-30T13:00:24.6927687-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.0.1.dll
+[2025-07-30T13:00:24.6938384-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.0.2.dll
+[2025-07-30T13:00:24.6938384-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.0.3.dll
+[2025-07-30T13:00:24.6938384-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.0.dll
+[2025-07-30T13:00:24.6941569-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.1.dll
+[2025-07-30T13:00:24.6941569-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.2.dll
+[2025-07-30T13:00:24.6941569-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.3.dll
+[2025-07-30T13:00:24.6941569-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.4.dll
+[2025-07-30T13:00:24.6941569-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.5.dll
+[2025-07-30T13:00:24.6941569-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.0.dll
+[2025-07-30T13:00:24.6941569-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.10.dll
+[2025-07-30T13:00:24.6941569-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.11.dll
+[2025-07-30T13:00:24.6941569-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.12.dll
+[2025-07-30T13:00:24.6941569-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.7.dll
+[2025-07-30T13:00:24.6951880-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.8.dll
+[2025-07-30T13:00:24.6951880-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.9.dll
+[2025-07-30T13:00:24.6951880-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found one matching implementation.
+[2025-07-30T13:00:24.6951880-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Loading implementation Bannerlord.NearbyTournaments.1.2.12.dll for game v1.2.12
+[2025-07-30T13:00:24.6951880-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Finished loading implementations.
+[2025-07-30T13:00:24.6951880-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Shokuho - Register: Shokuho, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+[2025-07-30T13:00:24.6951880-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Shokuho - Register Types
+[2025-07-30T13:00:24.6951880-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Shokuho - Enabled
+[2025-07-30T13:00:24.6951880-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: BetterTime - Register: BetterTime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+[2025-07-30T13:00:24.6951880-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: BetterTime - Register Types
+[2025-07-30T13:00:24.6961917-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: BetterTime - Enabled
+[2025-07-30T13:00:24.8104190-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [ERR]: 
+[2025-07-30T13:00:24.8104190-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: AccessTools2.Method: Could not find method for type 'TaleWorlds.CampaignSystem.CampaignBehaviors.CampaignBehaviorManager' and name 'OnGameLoaded' and parameters ''
+[2025-07-30T13:00:25.2523043-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Global container MCM.Implementation.Global.FluentGlobalSettingsContainer (0)
+[2025-07-30T13:00:25.2523043-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Global container MCM.Implementation.Global.ExternalGlobalSettingsContainer (0)
+[2025-07-30T13:00:25.2558229-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Global container MCM.Implementation.Global.GlobalSettingsContainer (6)
+[2025-07-30T13:00:25.2558229-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Global container MCM.UI.ButterLib.ButterLibSettingsContainer (1)
+[2025-07-30T13:00:25.2568227-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found PerSave container MCM.Implementation.PerSave.FluentPerSaveSettingsContainer (0)
+[2025-07-30T13:00:25.2568227-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found PerSave container MCM.Implementation.PerSave.PerSaveSettingsContainer (0)
+[2025-07-30T13:00:25.2568227-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Campaign container MCM.Implementation.PerCampaign.FluentPerCampaignSettingsContainer (0)
+[2025-07-30T13:00:25.2578225-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Campaign container MCM.Implementation.PerCampaign.PerCampaignSettingsContainer (0)
+[2025-07-30T13:00:25.2588256-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found external provider MCM.UI.Adapter.MCMv5.Providers.MCMv5ExternalSettingsProvider (0)
+[2025-07-30T13:00:25.2588256-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: 
+[2025-07-30T13:00:25.2588256-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: MCM.UI - Register: MCMv5.UI, Version=5.10.1.0, Culture=neutral, PublicKeyToken=null
+[2025-07-30T13:00:25.2598663-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: 
+[2025-07-30T13:00:25.2598663-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: MCM.UI - Register Types
+[2025-07-30T13:00:25.2731069-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: 
+[2025-07-30T13:00:25.2731069-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: MCM.UI - Enabled
+[2025-07-30T13:00:53.6306334-04:00] [Bannerlord.ButterLib.ButterLibSubModule] [INF]: Created GameScope
+[2025-07-30T13:19:57.5233741-04:00] [TaleWorlds.MountAndBlade.MBDebugManager] [FTL]: Crash Report: Exception occurred inside invoke: AgentsList
+Target type: Fourberie.CriminalVM
+Argument count: 0
+Inner message: Object reference not set to an instance of an object.
+[2025-07-30T13:19:57.5261076-04:00] [TaleWorlds.MountAndBlade.MBDebugManager] [FTL]: Crash Report StackTrace: C:\Program Files (x86)\Steam\steamapps\workshop\content\261550\2875642325\bin\Win64_Shipping_Client\BannerColorPersistence.dll@100663309@1
+C:\Program Files (x86)\Steam\steamapps\workshop\content\261550\2859188632\bin\Win64_Shipping_Client\MonoMod.Utils.dll@-1@-1
+C:\Program Files (x86)\Steam\steamapps\workshop\content\261550\2875710877\bin\Win64_Shipping_Client\Fourberie.dll@100663330@1214
+---End of stack trace from previous location where exception was thrown ---
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\mscorlib.dll@100667996@-1
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\mscorlib.dll@100681589@57
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\mscorlib.dll@100681587@108
+C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.Library.dll@100663512@0
+---End of stack trace from previous location where exception was thrown ---
+
+[2025-07-30T13:23:15.6503718-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Loading implementations...
+[2025-07-30T13:23:15.6985705-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.0.0.dll
+[2025-07-30T13:23:15.7565568-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.0.1.dll
+[2025-07-30T13:23:15.7607594-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.0.2.dll
+[2025-07-30T13:23:15.7633836-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.0.3.dll
+[2025-07-30T13:23:15.7643855-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.0.dll
+[2025-07-30T13:23:15.7654309-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.1.dll
+[2025-07-30T13:23:15.7679332-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.2.dll
+[2025-07-30T13:23:15.7689679-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.3.dll
+[2025-07-30T13:23:15.7710563-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.4.dll
+[2025-07-30T13:23:15.7730662-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.5.dll
+[2025-07-30T13:23:15.7751438-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.6.dll
+[2025-07-30T13:23:15.7793388-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.10.dll
+[2025-07-30T13:23:15.7808749-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.11.dll
+[2025-07-30T13:23:15.7843400-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.4.dll
+[2025-07-30T13:23:15.7853545-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.5.dll
+[2025-07-30T13:23:15.7864020-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.6.dll
+[2025-07-30T13:23:15.7874374-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.7.dll
+[2025-07-30T13:23:15.7895236-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.8.dll
+[2025-07-30T13:23:15.7936768-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.9.dll
+[2025-07-30T13:23:15.7963139-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found no matching implementations. Loading the latest available
+[2025-07-30T13:23:15.8014857-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Implementation Bannerlord.ButterLib.Implementation.1.2.11.dll for game v1.2.11.0 is loaded
+[2025-07-30T13:23:15.8179598-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Finished loading implementations
+[2025-07-30T13:23:15.8221034-04:00] [Bannerlord.ButterLib.Implementation.SubModule] [INF]: Wrapping DebugManager of type TaleWorlds.MountAndBlade.MBDebugManager with DebugManagerWrapper
+[2025-07-30T13:23:25.6364691-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Bannerlord.UIExtenderEx.UIPatch - Register Types
+[2025-07-30T13:23:25.6410945-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Bannerlord.UIExtenderEx.UIPatch - Enabled
+[2025-07-30T13:23:25.6410945-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [ERR]: HarmonyExtensions.TryPatch: 'original' or all methods are null
+[2025-07-30T13:23:25.6421244-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Loading implementations...
+[2025-07-30T13:23:25.6421244-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.0.0.dll
+[2025-07-30T13:23:25.6421244-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.0.1.dll
+[2025-07-30T13:23:25.6421244-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.0.2.dll
+[2025-07-30T13:23:25.6421244-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.0.3.dll
+[2025-07-30T13:23:25.6432129-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.0.dll
+[2025-07-30T13:23:25.6432129-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.1.dll
+[2025-07-30T13:23:25.6432129-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.2.dll
+[2025-07-30T13:23:25.6432129-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.3.dll
+[2025-07-30T13:23:25.6432129-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.4.dll
+[2025-07-30T13:23:25.6443153-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.5.dll
+[2025-07-30T13:23:25.6443153-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.0.dll
+[2025-07-30T13:23:25.6443153-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.10.dll
+[2025-07-30T13:23:25.6443153-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.11.dll
+[2025-07-30T13:23:25.6455347-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.12.dll
+[2025-07-30T13:23:25.6455347-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.7.dll
+[2025-07-30T13:23:25.6455347-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.8.dll
+[2025-07-30T13:23:25.6455347-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.9.dll
+[2025-07-30T13:23:25.6465828-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found one matching implementation.
+[2025-07-30T13:23:25.6465828-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Loading implementation Bannerlord.NearbyTournaments.1.2.12.dll for game v1.2.12
+[2025-07-30T13:23:25.6465828-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Finished loading implementations.
+[2025-07-30T13:23:25.6465828-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Shokuho - Register: Shokuho, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+[2025-07-30T13:23:25.6465828-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Shokuho - Register Types
+[2025-07-30T13:23:25.6465828-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Shokuho - Enabled
+[2025-07-30T13:23:25.6465828-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: BetterTime - Register: BetterTime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+[2025-07-30T13:23:25.6465828-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: BetterTime - Register Types
+[2025-07-30T13:23:25.6475821-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: BetterTime - Enabled
+[2025-07-30T13:23:25.7919532-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [ERR]: 
+[2025-07-30T13:23:25.7929527-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: AccessTools2.Method: Could not find method for type 'TaleWorlds.CampaignSystem.CampaignBehaviors.CampaignBehaviorManager' and name 'OnGameLoaded' and parameters ''
+[2025-07-30T13:23:26.1461544-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Global container MCM.Implementation.Global.FluentGlobalSettingsContainer (0)
+[2025-07-30T13:23:26.1474837-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Global container MCM.Implementation.Global.ExternalGlobalSettingsContainer (0)
+[2025-07-30T13:23:26.1507962-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Global container MCM.Implementation.Global.GlobalSettingsContainer (6)
+[2025-07-30T13:23:26.1507962-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Global container MCM.UI.ButterLib.ButterLibSettingsContainer (1)
+[2025-07-30T13:23:26.1521957-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found PerSave container MCM.Implementation.PerSave.FluentPerSaveSettingsContainer (0)
+[2025-07-30T13:23:26.1521957-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found PerSave container MCM.Implementation.PerSave.PerSaveSettingsContainer (0)
+[2025-07-30T13:23:26.1521957-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Campaign container MCM.Implementation.PerCampaign.FluentPerCampaignSettingsContainer (0)
+[2025-07-30T13:23:26.1532423-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Campaign container MCM.Implementation.PerCampaign.PerCampaignSettingsContainer (0)
+[2025-07-30T13:23:26.1542427-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found external provider MCM.UI.Adapter.MCMv5.Providers.MCMv5ExternalSettingsProvider (0)
+[2025-07-30T13:23:26.1552427-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: 
+[2025-07-30T13:23:26.1552427-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: MCM.UI - Register: MCMv5.UI, Version=5.10.1.0, Culture=neutral, PublicKeyToken=null
+[2025-07-30T13:23:26.1552427-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: 
+[2025-07-30T13:23:26.1552427-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: MCM.UI - Register Types
+[2025-07-30T13:23:26.1712410-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: 
+[2025-07-30T13:23:26.1712410-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: MCM.UI - Enabled
+[2025-07-30T13:24:26.6749507-04:00] [Bannerlord.ButterLib.ButterLibSubModule] [INF]: Created GameScope
+[2025-07-30T13:34:00.3685289-04:00] [Bannerlord.ButterLib.ButterLibSubModule] [INF]: Created GameScope
+[2025-07-30T13:35:53.8906356-04:00] [Bannerlord.ButterLib.ButterLibSubModule] [INF]: Created GameScope
+[2025-07-30T13:40:58.0880593-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Loading implementations...
+[2025-07-30T13:40:58.1486523-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.0.0.dll
+[2025-07-30T13:40:58.2049347-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.0.1.dll
+[2025-07-30T13:40:58.2111244-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.0.2.dll
+[2025-07-30T13:40:58.2132411-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.0.3.dll
+[2025-07-30T13:40:58.2152425-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.0.dll
+[2025-07-30T13:40:58.2172792-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.1.dll
+[2025-07-30T13:40:58.2198880-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.2.dll
+[2025-07-30T13:40:58.2209366-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.3.dll
+[2025-07-30T13:40:58.2240620-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.4.dll
+[2025-07-30T13:40:58.2261319-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.5.dll
+[2025-07-30T13:40:58.2292072-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.1.6.dll
+[2025-07-30T13:40:58.2363093-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.10.dll
+[2025-07-30T13:40:58.2398147-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.11.dll
+[2025-07-30T13:40:58.2408212-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.4.dll
+[2025-07-30T13:40:58.2428941-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.5.dll
+[2025-07-30T13:40:58.2449752-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.6.dll
+[2025-07-30T13:40:58.2474100-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.7.dll
+[2025-07-30T13:40:58.2513608-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.8.dll
+[2025-07-30T13:40:58.2549643-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found implementation Bannerlord.ButterLib.Implementation.1.2.9.dll
+[2025-07-30T13:40:58.2585926-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Found no matching implementations. Loading the latest available
+[2025-07-30T13:40:58.2632635-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Implementation Bannerlord.ButterLib.Implementation.1.2.11.dll for game v1.2.11.0 is loaded
+[2025-07-30T13:40:58.2800876-04:00] [Bannerlord.ButterLib.ImplementationLoaderSubModule] [INF]: Finished loading implementations
+[2025-07-30T13:40:58.2852565-04:00] [Bannerlord.ButterLib.Implementation.SubModule] [INF]: Wrapping DebugManager of type TaleWorlds.MountAndBlade.MBDebugManager with DebugManagerWrapper
+[2025-07-30T13:41:09.5345869-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Bannerlord.UIExtenderEx.UIPatch - Register Types
+[2025-07-30T13:41:09.5391068-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Bannerlord.UIExtenderEx.UIPatch - Enabled
+[2025-07-30T13:41:09.5401055-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [ERR]: HarmonyExtensions.TryPatch: 'original' or all methods are null
+[2025-07-30T13:41:09.5401055-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Loading implementations...
+[2025-07-30T13:41:09.5401055-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.0.0.dll
+[2025-07-30T13:41:09.5401055-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.0.1.dll
+[2025-07-30T13:41:09.5401055-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.0.2.dll
+[2025-07-30T13:41:09.5401055-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.0.3.dll
+[2025-07-30T13:41:09.5415668-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.0.dll
+[2025-07-30T13:41:09.5415668-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.1.dll
+[2025-07-30T13:41:09.5415668-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.2.dll
+[2025-07-30T13:41:09.5415668-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.3.dll
+[2025-07-30T13:41:09.5427890-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.4.dll
+[2025-07-30T13:41:09.5427890-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.1.5.dll
+[2025-07-30T13:41:09.5427890-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.0.dll
+[2025-07-30T13:41:09.5427890-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.10.dll
+[2025-07-30T13:41:09.5427890-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.11.dll
+[2025-07-30T13:41:09.5427890-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.12.dll
+[2025-07-30T13:41:09.5427890-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.7.dll
+[2025-07-30T13:41:09.5427890-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.8.dll
+[2025-07-30T13:41:09.5442492-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found implementation: Bannerlord.NearbyTournaments.1.2.9.dll
+[2025-07-30T13:41:09.5442492-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Found one matching implementation.
+[2025-07-30T13:41:09.5442492-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Loading implementation Bannerlord.NearbyTournaments.1.2.12.dll for game v1.2.12
+[2025-07-30T13:41:09.5442492-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Finished loading implementations.
+[2025-07-30T13:41:09.5442492-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Shokuho - Register: Shokuho, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+[2025-07-30T13:41:09.5442492-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Shokuho - Register Types
+[2025-07-30T13:41:09.5442492-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Shokuho - Enabled
+[2025-07-30T13:41:09.5442492-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: BetterTime - Register: BetterTime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+[2025-07-30T13:41:09.5442492-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: BetterTime - Register Types
+[2025-07-30T13:41:09.5454141-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: BetterTime - Enabled
+[2025-07-30T13:41:09.6930546-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [ERR]: 
+[2025-07-30T13:41:09.6930546-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: AccessTools2.Method: Could not find method for type 'TaleWorlds.CampaignSystem.CampaignBehaviors.CampaignBehaviorManager' and name 'OnGameLoaded' and parameters ''
+[2025-07-30T13:41:09.9974036-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Global container MCM.Implementation.Global.FluentGlobalSettingsContainer (0)
+[2025-07-30T13:41:09.9984387-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Global container MCM.Implementation.Global.ExternalGlobalSettingsContainer (0)
+[2025-07-30T13:41:10.0015655-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Global container MCM.Implementation.Global.GlobalSettingsContainer (6)
+[2025-07-30T13:41:10.0026105-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Global container MCM.UI.ButterLib.ButterLibSettingsContainer (1)
+[2025-07-30T13:41:10.0026105-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found PerSave container MCM.Implementation.PerSave.FluentPerSaveSettingsContainer (0)
+[2025-07-30T13:41:10.0036653-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found PerSave container MCM.Implementation.PerSave.PerSaveSettingsContainer (0)
+[2025-07-30T13:41:10.0036653-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Campaign container MCM.Implementation.PerCampaign.FluentPerCampaignSettingsContainer (0)
+[2025-07-30T13:41:10.0036653-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found Campaign container MCM.Implementation.PerCampaign.PerCampaignSettingsContainer (0)
+[2025-07-30T13:41:10.0051720-04:00] [MCM.Implementation.DefaultSettingsProvider] [INF]: Found external provider MCM.UI.Adapter.MCMv5.Providers.MCMv5ExternalSettingsProvider (0)
+[2025-07-30T13:41:10.0061817-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: 
+[2025-07-30T13:41:10.0061817-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: MCM.UI - Register: MCMv5.UI, Version=5.10.1.0, Culture=neutral, PublicKeyToken=null
+[2025-07-30T13:41:10.0061817-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: 
+[2025-07-30T13:41:10.0061817-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: MCM.UI - Register Types
+[2025-07-30T13:41:10.0216582-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: 
+[2025-07-30T13:41:10.0216582-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: MCM.UI - Enabled
+[2025-07-30T13:41:43.3126349-04:00] [Bannerlord.ButterLib.ButterLibSubModule] [INF]: Created GameScope

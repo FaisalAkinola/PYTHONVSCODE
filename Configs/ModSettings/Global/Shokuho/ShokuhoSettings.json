@@ -1,0 +1,14 @@
+{
+  "SashimonoPercentage": 40,
+  "PostbattleSizeThreshold": 50,
+  "EnableDuelCinematic": true,
+  "TroopPromotionSpeedMultipler": 1.0,
+  "EnableRetreatingWhileEnlisted": false,
+  "EnableCrouchFiring": true,
+  "ShokuhoDebugEnabled": false,
+  "HistoricEventsEnabled": true,
+  "ReduceRelationsOnDuelLoss": true,
+  "ReadingSpeedMultipler": 1.0,
+  "PauseGameWhenEnteringTownEnlistment": false,
+  "DisableGachaMusic": false
+}

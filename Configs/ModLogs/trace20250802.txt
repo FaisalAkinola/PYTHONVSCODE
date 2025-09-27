@@ -1,0 +1,16 @@
+[2025-08-02T16:49:58.5724356-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Bannerlord.UIExtenderEx.UIPatch - Register Types
+[2025-08-02T16:49:58.5765818-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Bannerlord.UIExtenderEx.UIPatch - Enabled
+[2025-08-02T16:49:58.5776488-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Shokuho - Register: Shokuho, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+[2025-08-02T16:49:58.5776488-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Shokuho - Register Types
+[2025-08-02T16:49:58.5776488-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: Shokuho - Enabled
+[2025-08-02T16:49:58.5786500-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: BetterTime - Register: BetterTime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+[2025-08-02T16:49:58.5786500-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: BetterTime - Register Types
+[2025-08-02T16:49:58.5786500-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: BetterTime - Enabled
+[2025-08-02T16:49:58.6861081-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [ERR]: 
+[2025-08-02T16:49:58.6861081-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: AccessTools2.Method: Could not find method for type 'TaleWorlds.CampaignSystem.CampaignBehaviors.CampaignBehaviorManager' and name 'OnGameLoaded' and parameters ''
+[2025-08-02T16:49:59.0977271-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: 
+[2025-08-02T16:49:59.0977271-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: MCM.UI - Register: MCMv5.UI, Version=5.10.1.0, Culture=neutral, PublicKeyToken=null
+[2025-08-02T16:49:59.0987371-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: 
+[2025-08-02T16:49:59.0987371-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: MCM.UI - Register Types
+[2025-08-02T16:49:59.1105673-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: 
+[2025-08-02T16:49:59.1105673-04:00] [System.Diagnostics.Logger.LoggerTraceListener] [INF]: MCM.UI - Enabled

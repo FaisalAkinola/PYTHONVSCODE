@@ -1,0 +1,34 @@
+<Module>
+	<Name value="Serve As Soldier"/>
+	<Id value="ServeAsSoldier"/>
+	<Version value="v1.2.8"/>
+	<SingleplayerModule value="true"/>
+	<MultiplayerModule value="false"/>
+	<DependedModules>
+		<DependedModule Id="Native"/>
+		<DependedModule Id="SandBoxCore"/>
+		<DependedModule Id="Sandbox"/>
+		<DependedModule Id="CustomBattle"/>
+		<DependedModule Id="StoryMode"/>
+	</DependedModules>
+	<SubModules>
+		<SubModule>
+			<Name value="Serve As Soldier"/>
+			<DLLName value="ServeAsSoldier.dll"/>
+			<SubModuleClassType value="ServeAsSoldier.SubModule"/>
+			<Tags>
+				<Tag key="DedicatedServerType" value="none" />
+				<Tag key="IsNoRenderModeElement" value="false" />
+			</Tags>
+		</SubModule>
+	</SubModules>
+	<Xmls>
+		<XmlNode>
+			<XmlName id="ItemModifiers" path="sas_item_modifiers"/>
+			<IncludedGameTypes>
+				<GameType value = "Campaign"/>
+				<GameType value = "CampaignStoryMode"/>
+			</IncludedGameTypes>
+		</XmlNode>
+	</Xmls>
+</Module>

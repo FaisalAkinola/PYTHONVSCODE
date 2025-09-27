@@ -5,6 +5,7 @@ from fpdf import FPDF
 import datetime
 import base64
 
+st.set_page_config(layout='wide')
 link="medicalquiz.csv"
 
 try:
@@ -12,9 +13,13 @@ try:
 except:
     score=pd.DataFrame()                 
 
+melt=score.melt(var_name="Name", value_name="Score")
+
+melt["Percentage"]=((melt["Score"]/20.0)*100)
+percentage = melt['Percentage'].iloc[0]
 
 menu=st.sidebar. selectbox("Menu",["Take Quiz","View Results"])
-
+# st.write(st.session_state)
 def generate_pdf():
     pdf=FPDF(orientation = 'Landscape', format = 'A4')
     pdf.add_page()
@@ -29,17 +34,17 @@ def generate_pdf():
     pdf.image(imageurl, x=0, y=0, w=300, h=200)
     pdf.set_font("Helvetica", size=40, style='I')
     pdf.set_xy(colx+80, coly+68)
-    pdf.cell(colw,colh, txt=st.session_state.user, align='C')
+    pdf.cell(colw,colh, txt=st.session_state.name, align='C')
 
     pdf.set_font("Times", size=24)
     pdf.set_xy(colx+27, coly+125)
-    pdf.cell(colw,colh, txt=f"{st.session_state.score}%", align='C')
+    pdf.cell(colw,colh, txt=f"{percentage}%", align='C')
 
     pdf.set_xy(colx+145, coly+125)
     pdf.cell(colw,colh, txt=f"{st.session_state.date}", align='C')
 
 
-    pdf_file=f'{st.session_state.user}certificate.pdf'
+    pdf_file=f'{st.session_state.name}certificate.pdf'
     pdf.output(pdf_file)
     return pdf_file
 
@@ -62,7 +67,9 @@ if menu=="Take Quiz":
                 
                 st.session_state.currentpage='qf1'
                 date=datetime.datetime.now()
+                
                 st.session_state.date=date.strftime("%d-%m-%Y")
+                
             
                 score.loc[0, st.session_state.name]=0
                 score.to_csv(link, index=False)
@@ -73,6 +80,8 @@ if menu=="Take Quiz":
 
 
     def qf1():
+        
+        
         col1, col2 =st.columns(2)
         with col1:
             st.subheader('Question 1')
@@ -81,7 +90,7 @@ if menu=="Take Quiz":
         st.write('')
         '---'
 
-        q1=st. pills('What is the main job of your heart?',[ "A) Pumping blood","B) Digesting food","C) Storing energy","D) Breathing air"])  
+        q1=st.pills('What is the main job of your heart?',[ "A) Pumping blood","B) Digesting food","C) Storing energy","D) Breathing air"])  
         if q1:
             st.session_state.q1=q1
         with col2:
@@ -672,10 +681,39 @@ if menu=="Take Quiz":
 
     def summary():
         st.success("You Have Finished Your Quiz")
+
+
+
         
         if st.button("Back to Home"):
             st.session_state.currentpage='homepage'
-            st.rerun()
+            st.rerun()     
+
+        pdf_func = generate_pdf()
+
+
+
+        with open(pdf_func, 'rb') as binary:
+            pdf_data = binary.read()
+
+        col1,col2,col3,=st.columns(3)
+
+        with col2:
+            st.download_button(label=':blue[**Download File**]',data=pdf_data, file_name=f"{st.session_state.name}'s Certificate.pdf",mime='application/pdf')
+
+        
+        s1,s2,s3=st.columns([0.8,2,1.2])
+        with s2:
+            st.success(f"User {st.session_state.name}'s certificate was generated.")
+
+        
+            # if st.button(":blue[**View Certificate**]"):
+            #     pdf_base64 = base64.b64encode(pdf_data).decode('utf-8')
+
+            #     pdf_embed = f'<embed src="data:application/pdf;base64,{pdf_base64}" type="application/pdf" width="100%" height="600px" />'
+
+
+            #     st.markdown(pdf_embed,unsafe_allow_html=True)
 
 
 
@@ -733,10 +771,11 @@ if menu=="Take Quiz":
 if menu=="View Results":
     # st.write(st.session_state.date)
 
-    melt=score.melt(var_name="Name", value_name="Score")
-    melt["Percentage"]=((melt["Score"]/20.0)*100)
+
+  
     with st.expander("View Quiz Table"):
         st.table(melt)
+
     
 
     chart=st.radio("Choose A Chart",["Bar","Pie"])
@@ -749,44 +788,3 @@ if menu=="View Results":
     if chart=="Pie":    
         st.plotly_chart(pie)
     
-
-    if st.sidebar.toggle("View Certificate"):
-            st.sidebar.write("---")
-            search=st.sidebar.text_input("Input Name")
-            st.sidebar.text_input("[Optional: Enter Email Adress]")
-            find=st.sidebar.button("Find User")
-            if find:
-                if search:
-                    
-                    search_result=melt[melt['Name'].str.lower()==search.lower()]
-                    st.session_state.user = str(search_result['Name'].iloc[0]).capitalize()
-                    st.session_state.score = str(search_result['Percentage'].iloc[0]).capitalize()
-                    # st.write(st.session_state.user)
-                    # st.write(search_result)
-                    # st.write(st.session_state.score)
-
-                    pdf_func = generate_pdf()
-
-
-    
-                    with open(pdf_func, 'rb') as binary:
-                        pdf_data = binary.read()
-
-                    col1,col2,col3,=st.columns(3)
-
-                    with col2:
-                        st.download_button(label=':blue[**Download File**]',data=pdf_data, file_name=f"{st.session_state.user}'s Certificate.pdf",mime='application/pdf')
-
-                    
-                    s1,s2,s3=st.columns([0.8,2,1.2])
-                    with s2:
-                        st.success(f"User {st.session_state.user}'s certificate was generated.")
-
-                    
-                        # if st.button(":blue[**View Certificate**]"):
-                        #     pdf_base64 = base64.b64encode(pdf_data).decode('utf-8')
-
-                        #     pdf_embed = f'<embed src="data:application/pdf;base64,{pdf_base64}" type="application/pdf" width="100%" height="600px" />'
-
-
-                        #     st.markdown(pdf_embed,unsafe_allow_html=True)

@@ -1,0 +1,11 @@
+{
+  "PlotBuyPrice": 300,
+  "PlotSellPrice": 100,
+  "UndevelopedPlotBuyPrice": 100,
+  "UndevelopedPlotSellPrice": 50,
+  "ProjectCost": 20000,
+  "ProjectTime": 10,
+  "LandRentScale": 1.0,
+  "SlaveProductionScale": 1.0,
+  "SlaveDeclineModifier": 0.297839373
+}

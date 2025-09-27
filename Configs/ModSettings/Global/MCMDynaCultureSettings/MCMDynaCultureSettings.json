@@ -1,0 +1,12 @@
+{
+  "PlayerKingdomOnly": false,
+  "ChangeNotablesCulture": true,
+  "AssimilationDelay": 90,
+  "GradualAssimilation": true,
+  "GovernorCultureInfluencePlayerSettlementOnly": true,
+  "GovernorInfluenceStrength": 0,
+  "TradeLinkedInfluence": true,
+  "OwnerInfluenceStrength": 6,
+  "SettlementInfluenceRange": 30,
+  "ShowInfluencesInDetails": true
+}
